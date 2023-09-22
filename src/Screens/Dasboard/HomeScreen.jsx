@@ -3,22 +3,29 @@ import "./HomeScreen.css";
 import BankImg from "../../assets/jklogo.png";
 import { useLocation, useNavigate } from "react-router-dom";
 import logout from "../../assets/logout.png";
-import ClipLoader from "react-spinners/ClipLoader";
 import { AppContext } from "../../context/AppContext";
 import FundTransaction from "./Transaction";
+import Modal from "../../Components/Modal";
 import TransactionHistory from "./TransactionHistory";
+import LoadingSpinner from "../Spinner/spinner";
 
 const HomeScreen = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const { user, setUser } = useContext(AppContext);
+  const { user, setUser, setAccount, apiUrl, setapiUrl } =
+    useContext(AppContext);
+  const [success, setSucces] = useState(false);
+  const [port, setPort] = useState({
+    ipAddress: "",
+    APIKey: "",
+  });
   const [data, setData] = useState([]);
   const [transfer, setTransfer] = useState(false);
   const [addTransfer, setAddTransfer] = useState(false);
   const [error, setError] = useState("");
 
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [transferDetails, setTransferDetails] = useState({
     ToAccountNumber: "",
     Amount: 0,
@@ -38,24 +45,32 @@ const HomeScreen = () => {
   }, [location?.state?.data, user]);
 
   useEffect(() => {
-    fetch("http://3.108.222.3:8080/getBenifitiaryAccounts", {
+    fetch(`http://${apiUrl.ip_port}/getBenifitiaryAccounts`, {
       method: "GET",
       headers: {
         "Content-type": "application/json; charset=UTF-8",
+        "api-key": apiUrl?.APIKey,
       },
     })
       .then((response) => response.json())
       .then((resp) => {
-        SetBenifitiaryAccounts(resp);
+        const value = resp?.Accounts;
+
+        value.splice(
+          value.findIndex((a) => a.AccountNumber === user.AccountNumber),
+          1
+        );
+
+        SetBenifitiaryAccounts(value);
         if (resp.StatusCode === "LOGIN SUCCESSFUL") {
         }
         if (resp.StatusCode === "LOGIN FAILED - CUSTOMER ID DOES NOT EXIST") {
         }
       });
-  }, []);
+  }, [user.AccountNumber, transferDetails.ToAccountNumber, apiUrl]);
 
   const login = async () => {
-    fetch("http://3.108.222.3:8080/login", {
+    fetch(`http://${apiUrl.ip_port}/login`, {
       method: "POST",
       body: JSON.stringify({
         UserID: data?.CustomerID,
@@ -63,6 +78,7 @@ const HomeScreen = () => {
       }),
       headers: {
         "Content-type": "application/json; charset=UTF-8",
+        "api-key": apiUrl?.APIKey,
       },
     })
       .then((response) => response.json())
@@ -70,6 +86,7 @@ const HomeScreen = () => {
         setUser(resp);
         setTransferDetails({});
         setTransferDetails1({});
+        setAccount("");
         setAddTransfer(false);
         setTransfer(false);
         setLoading(false);
@@ -80,54 +97,168 @@ const HomeScreen = () => {
   };
 
   const FundTransfer = () => {
-    fetch("http://3.108.222.3:8080/transferfunds", {
-      method: "POST",
-      body: JSON.stringify({
-        CustomerID: data?.CustomerID,
-        AccountNumber: data?.AccountNumber,
-        // Transactions: Transaction,
-        Transactions: addTransfer
-          ? [
-              {
-                ToAccountNumber: transferDetails?.ToAccountNumber,
-                Amount: Number(transferDetails?.Amount),
-                TransactionNotes: transferDetails?.TransactionNotes,
-              },
-              {
-                ToAccountNumber: transferDetails1?.ToAccountNumber,
-                Amount: Number(transferDetails1?.Amount),
-                TransactionNotes: transferDetails1?.TransactionNotes,
-              },
-            ]
-          : [
-              {
-                ToAccountNumber: transferDetails?.ToAccountNumber,
-                Amount: Number(transferDetails?.Amount),
-                TransactionNotes: transferDetails?.TransactionNotes,
-              },
-            ],
-      }),
-      headers: {
-        "Content-type": "application/json; charset=UTF-8",
-      },
-    })
-      .then((response) => response.json())
-      .then((resp) => {
-        if (resp.StatusCode === "LOGIN SUCCESSFUL") {
-          login();
-        }
-        if (resp.StatusCode === "LOGIN FAILED - CUSTOMER ID DOES NOT EXIST") {
-        }
-      })
-      .catch((err) => {
-        console.error(err);
-        setLoading(false);
+    const total = transferDetails?.Amount
+      ? transferDetails?.Amount
+      : 0 + transferDetails1?.Amount
+      ? transferDetails1?.Amount
+      : 0;
+    if (total > Number(user?.AccountBalance)) {
+      setError("INSUFFICIENT FUNDS");
+      setTransferDetails({
+        ...transferDetails,
+        Amount: "",
       });
+      setTransferDetails1({
+        ...transferDetails1,
+        Amount: "",
+      });
+      setLoading(false);
+    } else {
+      fetch(`http://${apiUrl.ip_port}/transferfunds`, {
+        method: "POST",
+        body: JSON.stringify({
+          CustomerID: data?.CustomerID,
+          AccountNumber: data?.AccountNumber,
+
+          Transactions: addTransfer
+            ? [
+                {
+                  ToAccountNumber: transferDetails?.ToAccountNumber,
+                  Amount: Number(transferDetails?.Amount),
+                  TransactionNotes: transferDetails?.TransactionNotes,
+                },
+                {
+                  ToAccountNumber: transferDetails1?.ToAccountNumber,
+                  Amount: Number(transferDetails1?.Amount),
+                  TransactionNotes: transferDetails1?.TransactionNotes,
+                },
+              ]
+            : [
+                {
+                  ToAccountNumber: transferDetails?.ToAccountNumber,
+                  Amount: Number(transferDetails?.Amount),
+                  TransactionNotes: transferDetails?.TransactionNotes,
+                },
+              ],
+        }),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+          "api-key": apiUrl?.APIKey,
+        },
+      })
+        .then((response) => response.json())
+        .then((resp) => {
+          if (resp.StatusCode === "LOGIN SUCCESSFUL") {
+            login();
+          }
+          if (resp.StatusCode === "LOGIN FAILED - CUSTOMER ID DOES NOT EXIST") {
+            setError("FAILED");
+          }
+        })
+        .catch((err) => {
+          setError(err);
+          console.error(err);
+          setLoading(false);
+        });
+    }
+  };
+  const closeModal = () => {
+    setSucces(!success);
+  };
+
+
+  const closeModal1 = () => {
+    // setSucces(!success);
   };
 
   return (
-    <div className="d-flex flex-column ">
-      <ClipLoader color="#36d7b7" loading={loading} />
+    <div className="d-flex flex-column">
+      <Modal className="backdrop" isOpen={loading} onClose={closeModal1}>
+        <LoadingSpinner />
+      </Modal>
+
+      <Modal className="backdrop" isOpen={success} onClose={closeModal}>
+        <div
+          style={{
+            top: "27%",
+            left: "30%",
+          }}
+          className=" d-flex flex-column rounded-3  align-items-center login-1 position-absolute  translate-middle input-border-radius box-shadow bg-white"
+        >
+          <div
+            className="mt-4 mb-3"
+            style={{
+              width: "300px",
+            }}
+          >
+            <div>IP_PORT:</div>
+            <input
+              style={{
+                width: "100%",
+              }}
+              className="user-input border border-1 p-1 rounded-1 bg-secondary bg-opacity-25 "
+              id=""
+              placeholder=" port number"
+              onChange={(e) => {
+                setPort({
+                  ...port,
+                  ipAddress: e?.target?.value,
+                });
+              }}
+              value={apiUrl?.ip_port}
+            />
+          </div>
+          <div
+            className=" mb-2"
+            style={{
+              width: "300px",
+            }}
+          >
+            <div>API Key:</div>
+            <input
+              style={{
+                width: "100%",
+              }}
+              className="user-input border border-1 p-1 rounded-1 bg-secondary bg-opacity-25 "
+              id=""
+              placeholder="api key"
+              onChange={(e) => {
+                setPort({
+                  ...port,
+                  APIKey: e?.target?.value,
+                });
+              }}
+              value={apiUrl?.api_key}
+            />
+          </div>
+          <div className="d-flex mt-4  w-100 justify-content-evenly ">
+            <div
+              role="presentation"
+              className="px-3 border border-1 w-25 text-center bg-success text-white rounded-2"
+              onClick={() => {
+                setapiUrl({
+                  ...apiUrl,
+                  ip_port: port?.ipAddress,
+                  api_key: port?.APIKey,
+                });
+                setSucces(false);
+              }}
+            >
+              save
+            </div>
+            <div
+              role="presentation"
+              className="px-3 border border-1 w-25 text-center bg-secondary bg-opacity-25 text-dark rounded-2"
+              onClick={() => {
+                setSucces(false);
+              }}
+            >
+              cancel
+            </div>
+          </div>
+        </div>
+      </Modal>
+
       <div
         className="fixed-top"
         style={{
@@ -162,7 +293,15 @@ const HomeScreen = () => {
           >
             NEFT/IMPS
           </div>
-          <div className="headerTop1">Settings</div>
+          <div
+            className="headerTop1"
+            role="presentation"
+            onClick={() => {
+              setSucces(true);
+            }}
+          >
+            Settings
+          </div>
           <div className="headerTop1 text-muted">Loan</div>
         </div>
         <div
@@ -333,6 +472,7 @@ const HomeScreen = () => {
             </div>
           </div>
         </div>
+
         <div
           style={{
             display: "flex",
@@ -368,15 +508,28 @@ const HomeScreen = () => {
                   >
                     Fund Transfer
                   </div>
-                  <div
-                    className="  px-3   bg-secondary rounded-2 text-white  "
-                    role="presentation"
-                    onClick={() => {
-                      setAddTransfer(true);
-                    }}
-                  >
-                    Add +
-                  </div>
+                  {!addTransfer ? (
+                    <div
+                      className="  px-3   bg-secondary rounded-2 text-white  "
+                      role="presentation"
+                      onClick={() => {
+                        setAddTransfer(true);
+                      }}
+                    >
+                      Add +
+                    </div>
+                  ) : (
+                    <div
+                      className="  px-3   bg-secondary rounded-2 text-white  "
+                      role="presentation"
+                      onClick={() => {
+                        setAddTransfer(false);
+                        setTransferDetails1({});
+                      }}
+                    >
+                      remove -
+                    </div>
+                  )}
                 </div>
                 {error ? <div className="text-danger">{error}</div> : ""}
                 <div className="d-flex">
@@ -387,7 +540,7 @@ const HomeScreen = () => {
                     }}
                     type="button"
                     // disabled="True"
-                    className=" px-5   bg-primary text-center rounded-2 text-white  "
+                    className=" px-5  border border-0 bg-primary text-center rounded-2 text-white  "
                     role="presentation"
                     onClick={() => {
                       setLoading(true);
@@ -401,7 +554,15 @@ const HomeScreen = () => {
                         transferDetails1.TransactionNotes !== ""
                       ) {
                         setLoading(true);
-                        FundTransfer();
+                        if (
+                          Number(
+                            transferDetails.Amount + transferDetails1.Amount
+                          ) > Number(user?.Amount)
+                        ) {
+                          FundTransfer();
+                        } else {
+                          setError("INSUFFICIENT FUNDS");
+                        }
                       } else if (
                         !addTransfer &&
                         transferDetails.ToAccountNumber !== "" &&
@@ -410,7 +571,13 @@ const HomeScreen = () => {
                       ) {
                         setLoading(true);
 
-                        FundTransfer();
+                        if (
+                          Number(transferDetails.Amount) > Number(user?.Amount)
+                        ) {
+                          FundTransfer();
+                        } else {
+                          setError("INSUFFICIENT FUNDS");
+                        }
                       } else {
                         setError("Please fill all the feilds");
                         setLoading(false);
@@ -428,6 +595,7 @@ const HomeScreen = () => {
                       setAddTransfer(false);
                       setTransferDetails({});
                       setTransfer(false);
+                      setAccount("");
                     }}
                   >
                     Cancel
@@ -435,7 +603,7 @@ const HomeScreen = () => {
                 </div>
               </div>
               <div
-                className="d-flex flex-fill"
+                className="d-flex "
                 style={
                   {
                     // width:'100%'
@@ -450,6 +618,7 @@ const HomeScreen = () => {
                   transferDetails={transferDetails}
                   benifitiaryAccounts={benifitiaryAccounts}
                   FundTransfer={FundTransfer}
+                  user={user}
                 />
                 {addTransfer ? (
                   <FundTransaction

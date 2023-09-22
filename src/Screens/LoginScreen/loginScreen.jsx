@@ -15,7 +15,7 @@ const Loginscreen = () => {
   const [open, setOpen] = useState(false);
   const [success, setSucces] = useState(false);
 
-  const { setUser } = useContext(AppContext);
+  const { setUser, apiUrl } = useContext(AppContext);
 
   const [errordata, setErrorData] = useState({
     UserIDError: "",
@@ -29,7 +29,7 @@ const Loginscreen = () => {
   });
 
   const login = async (userDetails) => {
-    fetch("http://3.108.222.3:8080/login", {
+    fetch(`http://${apiUrl.ip_port}/login`, {
       method: "POST",
       body: JSON.stringify({
         UserID: userDetails.UserID,
@@ -37,6 +37,7 @@ const Loginscreen = () => {
       }),
       headers: {
         "Content-type": "application/json; charset=UTF-8",
+        "api-key" : apiUrl?.APIKey,
       },
     })
       .then((response) => response.json())
@@ -56,7 +57,13 @@ const Loginscreen = () => {
         if (resp.StatusCode === "LOGIN FAILED - CUSTOMER ID DOES NOT EXIST") {
           setErrorData({
             ...errordata,
-            CredentialError: "Credentials error !!",
+            CredentialError: resp.StatusCode,
+          });
+
+          setUserDetails({
+            ...userDetails,
+            UserID: "",
+            Password: "",
           });
         }
       });
@@ -191,6 +198,7 @@ const Loginscreen = () => {
                   setErrorData({
                     ...errordata,
                     UserIDError: "",
+                    CredentialError: "",
                   });
                   setUserDetails({
                     ...userDetails,
@@ -243,13 +251,14 @@ const Loginscreen = () => {
                 }}
                 className="user-input"
                 id="passicon"
-                type="text"
+                type="password"
                 placeholder=" Enter the Password"
                 onChange={(e) => {
                   setErrorData({
                     ...errordata,
 
                     PasswordError: "",
+                    CredentialError: "",
                   });
                   setUserDetails({
                     ...userDetails,

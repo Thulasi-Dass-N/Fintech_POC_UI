@@ -72,3 +72,33 @@ input::-webkit-inner-spin-button {
 
   resize: none; 
 } */
+
+.login-1 {
+  width: 20.75rem;
+  height: 15.813rem;
+  &InputPhone {
+    &Flag {
+      width: 1.5rem;
+    }
+    &Seperator {
+      width: 0.063rem;
+      height: 1rem;
+    }
+  }
+  &Line {
+    width: 0.063rem;
+    height: 3.75rem;
+    border-radius: 20px;
+    background: linear-gradient(180deg, #28282800 0%, #282828 100%);
+    &Text {
+      max-width: 9rem;
+    }
+  }
+  &Icon {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+  &BottomText {
+    max-width: 19rem;
+  }
+}

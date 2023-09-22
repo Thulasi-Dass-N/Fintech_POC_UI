@@ -1,5 +1,6 @@
-import React from "react";
+import React, {  useContext } from "react";
 import "./HomeScreen.css";
+import { AppContext } from "../../context/AppContext";
 
 const FundTransaction = ({
   setError,
@@ -7,8 +8,25 @@ const FundTransaction = ({
   transferDetails,
   benifitiaryAccounts,
 }) => {
+  const { account, setAccount } = useContext(AppContext);
+  const selectedAccount = [];
+  console.log(selectedAccount);
+
+  const SelectedAccount = (data) => {
+    console.log(data, "data");
+    console.log(account, "Account");
+    if (account === data) {
+      setError("Account already selected");
+    } else {
+      setTransferDetails({
+        ...transferDetails,
+        ToAccountNumber: data,
+      });
+      setAccount(data);
+    }
+  };
   return (
-    <div className="px-5">
+    <div className="px-5 ">
       {/* <div
         className="d-flex justify-content-between align-items-center "
         style={{
@@ -74,9 +92,7 @@ const FundTransaction = ({
           </div>
         </div>
       </div> */}
-      <div
-     
-      >
+      <div>
         <div
           style={{
             width: "100%",
@@ -95,10 +111,7 @@ const FundTransaction = ({
                   aria-label="Default select example"
                   id="account"
                   onChange={(e) => {
-                    setTransferDetails({
-                      ...transferDetails,
-                      ToAccountNumber: e?.target?.value,
-                    });
+                    SelectedAccount(e?.target?.value.toString());
                   }}
                 >
                   <option
@@ -107,13 +120,13 @@ const FundTransaction = ({
                     label=" Select Benifitiary Account"
                   />
 
-                  {benifitiaryAccounts?.Accounts?.map((account) => {
+                  {benifitiaryAccounts?.map((account) => {
                     return (
                       <option
                         key={account?.AccountNumber}
                         value={account.AccountNumber}
                       >
-                        {account?.CustomerName}
+                        {account.CustomerName}
                       </option>
                     );
                   })}
@@ -131,11 +144,11 @@ const FundTransaction = ({
                   display: "flex",
                   flexDirection: "column",
                   justifyContent: "center",
-                  width: "100%",
+                  width: "300px",
                 }}
               >
                 <div className="bg-secondary bg-opacity-25  border p-2 px-1 mb-1 rounded-2 ">
-                  {benifitiaryAccounts?.Accounts.map((account) => (
+                  {benifitiaryAccounts?.map((account) => (
                     <>
                       <div>
                         {account.AccountNumber ===
@@ -156,7 +169,7 @@ const FundTransaction = ({
               <div
                 className="mb-4"
                 style={{
-                  width: "100%",
+                  width: "300px",
                 }}
               >
                 <div>Amount</div>
@@ -184,7 +197,7 @@ const FundTransaction = ({
               <div
                 class="form-floating pb-3"
                 style={{
-                  width: "100%",
+                  width: "300px",
                 }}
               >
                 <div>Description</div>

@@ -12,16 +12,16 @@ const TransactionHistory = ({ data }) => {
         }}
       >
         <div
-          className="d-flex justify-content-center"
+          className="d-flex justify-content-start"
           style={{
             width: "10%",
           }}
         >
-          <p className={`fs-14 fw-6 `}>S.NO</p>
+          <p className={`fs-14 fw-6  `}>S.NO</p>
         </div>
 
         <div
-          className="d-flex justify-content-center"
+          className="d-flex justify-content-start"
           style={{
             width: "20%",
           }}
@@ -29,7 +29,7 @@ const TransactionHistory = ({ data }) => {
           <p className={`fs-14 fw-6 `}>Date & Time</p>
         </div>
         <div
-          className="d-flex justify-content-center"
+          className="d-flex justify-content-start"
           style={{
             width: "40%",
           }}
@@ -38,7 +38,7 @@ const TransactionHistory = ({ data }) => {
         </div>
 
         <div
-          className="d-flex justify-content-center"
+          className="d-flex justify-content-start"
           style={{
             width: "10%",
           }}
@@ -46,7 +46,7 @@ const TransactionHistory = ({ data }) => {
           <p className={`fs-14 fw-6 `}>Debit Amount</p>
         </div>
         <div
-          className="d-flex justify-content-center"
+          className="d-flex justify-content-start"
           style={{
             width: "10%",
           }}
@@ -68,7 +68,7 @@ const TransactionHistory = ({ data }) => {
             }}
           >
             <div
-              className="d-flex justify-content-center "
+              className="d-flex justify-content-start "
               style={{
                 width: "10%",
               }}
@@ -77,7 +77,7 @@ const TransactionHistory = ({ data }) => {
             </div>
 
             <div
-              className="d-flex justify-content-center"
+              className="d-flex justify-content-start"
               style={{
                 width: "20%",
               }}
@@ -95,7 +95,7 @@ const TransactionHistory = ({ data }) => {
               <p className="table-font ">{transaction.Description}</p>
             </div>
             <div
-              className="d-flex justify-content-center"
+              className="d-flex justify-content-start"
               style={{
                 width: "10%",
               }}
@@ -103,7 +103,7 @@ const TransactionHistory = ({ data }) => {
               <p className="table-font">{transaction.DebitAmount || "-"}</p>
             </div>
             <div
-              className="d-flex justify-content-center"
+              className="d-flex justify-content-start"
               style={{
                 width: "10%",
               }}
