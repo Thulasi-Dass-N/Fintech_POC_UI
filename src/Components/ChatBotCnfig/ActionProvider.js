@@ -1,5 +1,3 @@
-
-
 import React from "react";
 
 const ActionProvider = ({ createChatBotMessage, setState, children }) => {
@@ -20,51 +18,55 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
     }));
   };
 
-  const  handleSavingBalance = () => {
-    const botMessage = createChatBotMessage(
-      "please provide the customer Id.",
-      {
-        widget: "handleSavingBalance",
-        loading: true,
-        terminateLoading: true,
-        withAvatar: true,
-
-      }
-    );
+  const handleSavingBalance = () => {
+    const botMessage = createChatBotMessage("please provide the customer Id.", {
+      widget: "handleSavingBalance",
+      loading: true,
+      terminateLoading: true,
+      withAvatar: true,
+    });
 
     setState((prev) => ({
       ...prev,
       messages: [...prev.messages, botMessage],
     }));
   };
-  const  handleNewSavingAccount = () => {
-    const botMessage = createChatBotMessage(
-      "please fill the form",
-      {
-        widget: "handleNewSavingAccount",
-        loading: true,
-        terminateLoading: true,
-        withAvatar: true,
 
-      }
-    );
+  //handleNewCorporateAccount
+  const handleNewSavingAccount = () => {
+    const botMessage = createChatBotMessage("please fill the form", {
+      widget: "handleNewSavingAccount",
+      loading: true,
+      terminateLoading: true,
+      withAvatar: true,
+    });
 
     setState((prev) => ({
       ...prev,
       messages: [...prev.messages, botMessage],
     }));
   };
-  const  handleCorporateBalance = () => {
-    const botMessage = createChatBotMessage(
-      "please provide the customer Id.",
-      {
-        widget: "handleCorporateBalance",
-        loading: true,
-        terminateLoading: true,
-        withAvatar: true,
+  const handleCorporateBalance = () => {
+    const botMessage = createChatBotMessage("please provide the customer Id.", {
+      widget: "handleCorporateBalance",
+      loading: true,
+      terminateLoading: true,
+      withAvatar: true,
+    });
 
-      }
-    );
+    setState((prev) => ({
+      ...prev,
+      messages: [...prev.messages, botMessage],
+    }));
+  };
+
+  const handleNewCorporateAccount = () => {
+    const botMessage = createChatBotMessage("please fill the form", {
+      widget: "handleNewCorporateAccount",
+      loading: true,
+      terminateLoading: true,
+      withAvatar: true,
+    });
 
     setState((prev) => ({
       ...prev,
@@ -75,12 +77,12 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
   const handleGlobalStats = () => {
     const botMessage = createChatBotMessage(
       "Please select the below options.",
-     
+
       {
         widget: "globalStatistics",
         loading: true,
         terminateLoading: true,
-        withAvatar: true
+        withAvatar: true,
       }
     );
 
@@ -91,15 +93,12 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
   };
 
   const handleLocalStats = () => {
-    const botMessage = createChatBotMessage(
-      "Here's the latest stats in Sri Lanka.",
-      {
-        widget: "localStatistics",
-        loading: true,
-        terminateLoading: true,
-        withAvatar: true
-      }
-    );
+    const botMessage = createChatBotMessage("please fill the form", {
+      widget: "localStatistics",
+      loading: true,
+      terminateLoading: true,
+      withAvatar: true,
+    });
 
     setState((prev) => ({
       ...prev,
@@ -107,16 +106,13 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
     }));
   };
 
-  const  handleContact = () => {
-    const botMessage = createChatBotMessage(
-      "Enter the CustomerId",
-      {
-        widget: "emergencyContact",
-        loading: true,
-        terminateLoading: true,
-        withAvatar: true
-      }
-    );
+  const handleContact = () => {
+    const botMessage = createChatBotMessage("Enter the CustomerId", {
+      widget: "emergencyContact",
+      loading: true,
+      terminateLoading: true,
+      withAvatar: true,
+    });
 
     setState((prev) => ({
       ...prev,
@@ -125,15 +121,12 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
   };
 
   const handleMedicine = () => {
-    const botMessage = createChatBotMessage(
-      "To have clinical medicine safely delivered to your home, please refer to the link below.",
-      {
-        widget: "medicineDelivery",
-        loading: true,
-        terminateLoading: true,
-        withAvatar: true
-      }
-    );
+    const botMessage = createChatBotMessage("please fill the form", {
+      widget: "medicineDelivery",
+      loading: true,
+      terminateLoading: true,
+      withAvatar: true,
+    });
 
     setState((prev) => ({
       ...prev,
@@ -142,9 +135,9 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
   };
 
   const handleJoke = () => {
-    
-
-    const botMessage = createChatBotMessage("Please help to share OTP sent your registered mobile number");
+    const botMessage = createChatBotMessage(
+      "Please help to share OTP sent your registered mobile number"
+    );
 
     setState((prev) => ({
       ...prev,
@@ -176,6 +169,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             handleThanks,
             handleCorporateBalance,
             handleNewSavingAccount,
+            handleNewCorporateAccount,
           },
         });
       })}

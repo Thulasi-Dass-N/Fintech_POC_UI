@@ -5,6 +5,7 @@ import { useSearchParams } from "react-router-dom";
 import Modal from "../../Components/Modal";
 import { AppContext } from "../../context/AppContext";
 import LoadingSpinner from "../Spinner/spinner";
+// import { getComponents } from "../Common/common";
 
 import { nameValid, validateMob, validatePan } from "../../Utils/Validation";
 
@@ -104,7 +105,7 @@ const NewCustomer = () => {
           <>
             <div className="mb-3 in-left text-white  w-100 justify-content-around  align-items-center px-5 ">
               <div className=" d-flex  mb-3  text-white w-100 justify-content-between  align-items-center">
-                <div className="w-50 fs-5  text-start ">Account Type :</div>
+                <div className="w-50 fs-5  text-end px-3 ">Account Type :</div>
                 <div className=" w-50 form-group">
                   <select
                     className="form-select form-control pt-2 pb-2 mt-2  text-primary rounded-3"
@@ -197,7 +198,7 @@ const NewCustomer = () => {
           <>
             <div className="mb-3 text-white w-100 justify-content-around  align-items-center px-5">
               <div className=" d-flex  mb-3 text-white w-100 justify-content-between  align-items-center">
-                <div className="w-50 fs-5  text-start ">Account Type :</div>
+                <div className="w-50 fs-5  text-end px-3 ">Account Type :</div>
                 <div className=" w-50 form-group">
                   <select
                     className="form-select form-control pt-2 pb-2 mt-2  text-primary rounded-3"
@@ -247,9 +248,9 @@ const NewCustomer = () => {
                   </select>
                 </div>
               </div>
-              <div className="d-flex text-white w-100 in-left justify-content-start align-items-center">
-                <div className="fs-5 w-50 text-start">
-                  May I Know your name :{" "}
+              <div className="d-flex mt-3 text-white w-100 in-left justify-content-start align-items-center">
+                <div className="fs-5 w-50 text-end px-3">
+                  May we know your name :{" "}
                 </div>
                 <div className=" w-50 form-group">
                   <input
@@ -314,7 +315,7 @@ const NewCustomer = () => {
           <>
             <div className="mb-3 text-white w-100 justify-content-around  align-items-center px-5">
               <div className=" d-flex  mb-3  text-white w-100 justify-content-between  align-items-center">
-                <div className="w-50 fs-5 text-start ">Account Type :</div>
+                <div className="w-50 fs-5 text-end px-3 ">Account Type :</div>
                 <div className=" w-50 form-group">
                   <select
                     className="form-select form-control pt-2 pb-2 mt-2  text-primary rounded-3"
@@ -364,9 +365,9 @@ const NewCustomer = () => {
                   </select>
                 </div>
               </div>
-              <div className="d-flex  text-white w-100 justify-content-start align-items-center">
-                <div className="fs-5 w-50 text-start">
-                  May I Know your name :{" "}
+              <div className="d-flex mt-3 text-white w-100 justify-content-start align-items-center">
+                <div className="fs-5 w-50 text-end px-3">
+                  May we know your name :{" "}
                 </div>
                 <div className=" w-50 form-group">
                   <input
@@ -384,9 +385,9 @@ const NewCustomer = () => {
                 </div>
               </div>
 
-              <div className="d-flex in-left  text-white w-100 justify-content-around align-items-center">
-                <div className="fs-5 w-50 text-start">
-                  Where should I contact you:
+              <div className="d-flex in-left mt-3 text-white w-100 justify-content-around align-items-center">
+                <div className="fs-5 w-50 text-end px-3">
+                  Where should we contact you:
                 </div>
                 <div className="  w-50 mt-3 form-group">
                   <input
@@ -451,7 +452,7 @@ const NewCustomer = () => {
           <>
             <div className="mb-3 text-white w-100 justify-content-around  align-items-center px-5">
               <div className=" d-flex  mb-3 text-white w-100 justify-content-between  align-items-center">
-                <div className="w-50 fs-5 text-start ">Account Type :</div>
+                <div className="w-50 fs-5 text-end px-3 ">Account Type :</div>
                 <div className=" w-50 form-group">
                   <select
                     className="form-select form-control pt-2 pb-2 mt-2  text-primary rounded-3"
@@ -501,9 +502,9 @@ const NewCustomer = () => {
                   </select>
                 </div>
               </div>
-              <div className="d-flex   text-white w-100 justify-content-start align-items-center">
-                <div className="fs-5 w-50 text-start">
-                  May I Know your name :{" "}
+              <div className="d-flex  mt-3 text-white w-100 justify-content-start align-items-center">
+                <div className="fs-5 w-50 text-end px-3">
+                  May we know your name :{" "}
                 </div>
                 <div className=" w-50 form-group">
                   <input
@@ -521,9 +522,9 @@ const NewCustomer = () => {
                 </div>
               </div>
 
-              <div className="d-flex  text-white w-100 justify-content-around align-items-center">
-                <div className="fs-5 w-50 text-start">
-                  Where should I contact you:
+              <div className="d-flex mt-3 text-white w-100 justify-content-around align-items-center">
+                <div className="fs-5 w-50 text-end px-3">
+                  Where should we contact you:
                 </div>
                 <div className="  w-50 mt-3 form-group">
                   <input
@@ -540,9 +541,9 @@ const NewCustomer = () => {
                 </div>
               </div>
 
-              <div className="d-flex in-left text-white w-100 justify-content-around align-items-center">
-                <div className="fs-5  w-50 text-start">
-                  Can you please help me with your PAN number :{" "}
+              <div className="d-flex mt-3 in-left text-white w-100 justify-content-around align-items-center ">
+                <div className="fs-5  w-50 text-end px-3">
+                   Can you please help us with your PAN number :{" "}
                 </div>
                 <div className="  form-group  w-50 ">
                   <input
@@ -612,7 +613,7 @@ const NewCustomer = () => {
           <>
             <div className="mb-3 text-white w-100 justify-content-around  align-items-center px-5">
               <div className=" d-flex   mb-3 text-white w-100 justify-content-between  align-items-center">
-                <div className="w-50 fs-5 text-start ">Account Type :</div>
+                <div className="w-50 fs-5 text-end px-3 ">Account Type :</div>
                 <div className=" w-50 form-group">
                   <select
                     className="form-select form-control pt-2 pb-2 mt-2  text-primary rounded-3"
@@ -662,9 +663,9 @@ const NewCustomer = () => {
                   </select>
                 </div>
               </div>
-              <div className="d-flex  text-white w-100 justify-content-start align-items-center">
-                <div className="fs-5 w-50 text-start">
-                  May I Know your name :{" "}
+              <div className="d-flex mt-3 text-white w-100 justify-content-start align-items-center">
+                <div className="fs-5 w-50 text-end px-3">
+                  May we know your name :{" "}
                 </div>
                 <div className=" w-50 form-group">
                   <input
@@ -682,9 +683,9 @@ const NewCustomer = () => {
                 </div>
               </div>
 
-              <div className="d-flex  text-white w-100 justify-content-around align-items-center">
-                <div className="fs-5 w-50 text-start">
-                  Where should I contact you:
+              <div className="d-flex mt-3 text-white w-100 justify-content-around align-items-center">
+                <div className="fs-5 w-50 text-end px-3">
+                  Where should we contact you:
                 </div>
                 <div className="  w-50 mt-3 form-group">
                   <input
@@ -701,9 +702,9 @@ const NewCustomer = () => {
                 </div>
               </div>
 
-              <div className="d-flex   text-white w-100 justify-content-around align-items-center">
-                <div className="fs-5  w-50 text-start">
-                  Can you please help me with your PAN number :{" "}
+              <div className="d-flex  mt-3 text-white w-100 justify-content-around align-items-center">
+                <div className="fs-5  w-50 text-end px-3">
+                   Can you please help us with your PAN number :{" "}
                 </div>
                 <div className="  form-group  w-50 ">
                   <input
@@ -723,14 +724,18 @@ const NewCustomer = () => {
                 </div>
               </div>
 
-              <div className="d-flex in-left text-white w-100 justify-content-around align-items-center">
-                <div className="fs-5  w-50 text-start">
-                  Can you please help me with your Aadhar number :
+              <div className="d-flex mt-3 in-left text-white w-100 justify-content-around align-items-center">
+                <div className="fs-5  w-50 text-end px-3">
+                  Can you please help us with your Aadhar number :
                 </div>
                 <div className=" w-50  form-group">
                   <input
                     className=" w-100 px-2 py-1 rounded-2 user-input border-0"
                     placeholder="Aadhar number"
+                    // onKeyPress="if(this.value.length==5) return false;"
+                    onKeyDown={""}
+                    maxLength={12}
+                    minLength={12}
                     type="number"
                     onChange={(e) => {
                       setCustomerDetails({
@@ -765,7 +770,9 @@ const NewCustomer = () => {
                   customerDetails?.CustName === "" ||
                   customerDetails?.CustAddress === "" ||
                   customerDetails?.PAN_NO === "" ||
-                  customerDetails?.AadharNo === ""
+                  customerDetails?.AadharNo === "" ||
+                  customerDetails?.PAN_NO.length !== 10 ||
+                  customerDetails?.AadharNo.length !== 12
                 }
                 className="btn btn-success mx-3  w-25"
                 onClick={() => {
@@ -793,7 +800,7 @@ const NewCustomer = () => {
           <>
             <div className="mb-3 text-white w-100 justify-content-around  align-items-center px-5">
               <div className=" d-flex  mb-3   text-white w-100 justify-content-between  align-items-center">
-                <div className="w-50 fs-5 text-start ">Account Type :</div>
+                <div className="w-50 fs-5 text-end px-3 ">Account Type :</div>
                 <div className=" w-50 form-group">
                   <select
                     className="form-select form-control pt-2 pb-2 mt-2  text-primary rounded-3"
@@ -843,9 +850,9 @@ const NewCustomer = () => {
                   </select>
                 </div>
               </div>
-              <div className="d-flex text-white w-100  justify-content-start align-items-center">
-                <div className="fs-5 w-50 text-start">
-                  May I Know your name :{" "}
+              <div className="d-flex text-white w-100 mt-3 justify-content-start align-items-center">
+                <div className="fs-5 w-50 text-end px-3">
+                  May we know your name :{" "}
                 </div>
                 <div className=" w-50 form-group">
                   <input
@@ -863,9 +870,9 @@ const NewCustomer = () => {
                 </div>
               </div>
 
-              <div className="d-flex  text-white   w-100 justify-content-around align-items-center">
-                <div className="fs-5 w-50 text-start">
-                  Where should I contact you:
+              <div className="d-flex mt-3 text-white   w-100 justify-content-around align-items-center">
+                <div className="fs-5 w-50 text-end px-3">
+                  Where should we contact you:
                 </div>
                 <div className="  w-50 mt-3 form-group">
                   <input
@@ -882,9 +889,9 @@ const NewCustomer = () => {
                 </div>
               </div>
 
-              <div className="d-flex text-white  w-100 justify-content-around align-items-center">
-                <div className="fs-5  w-50 text-start">
-                  Can you please help me with your PAN number :{" "}
+              <div className="d-flex mt-3 text-white  w-100 justify-content-around align-items-center">
+                <div className="fs-5  w-50 text-end px-3">
+                   Can you please help us with your PAN number :{" "}
                 </div>
                 <div className="  form-group  w-50 ">
                   <input
@@ -904,14 +911,16 @@ const NewCustomer = () => {
                 </div>
               </div>
 
-              <div className="d-flex text-white  w-100 justify-content-around align-items-center">
-                <div className="fs-5  w-50 text-start">
-                  Can you please help me with your Aadhar number :
+              <div className="d-flex mt-3 text-white  w-100 justify-content-around align-items-center">
+                <div className="fs-5  w-50 text-end px-3">
+                  Can you please help us with your Aadhar number :
                 </div>
                 <div className=" w-50  form-group">
                   <input
                     className=" w-100 px-2 py-1 rounded-2 user-input border-0"
                     placeholder="Aadhar number"
+                    maxLength={12}
+                    minLength={12}
                     type="number"
                     onChange={(e) => {
                       setCustomerDetails({
@@ -923,9 +932,9 @@ const NewCustomer = () => {
                 </div>
               </div>
 
-              <div className="d-flex in-left text-white w-100 justify-content-around align-items-center">
-                <div className="fs-5  w-50 text-start">
-                  Where should I call you:
+              <div className="d-flex mt-3 in-left text-white w-100 justify-content-around align-items-center">
+                <div className="fs-5  w-50 text-end px-3">
+                  Where should we call you:
                 </div>
                 <div className="  w-50 form-group">
                   <input
@@ -977,7 +986,9 @@ const NewCustomer = () => {
                   customerDetails?.CustAddress === "" ||
                   customerDetails?.PAN_NO === "" ||
                   customerDetails?.AadharNo === "" ||
-                  customerDetails?.MobileNo === ""
+                  customerDetails?.MobileNo === "" ||
+                  customerDetails?.PAN_NO.length !== 10 ||
+                  customerDetails?.AadharNo.length !== 12
                 }
                 className="btn btn-success mx-3   w-25"
                 onClick={() => {
@@ -1024,7 +1035,7 @@ const NewCustomer = () => {
           <>
             <div className="mb-3 text-white  w-100 justify-content-around  align-items-center px-5">
               <div className=" d-flex   mb-3 text-white w-100 justify-content-between  align-items-center">
-                <div className="w-50 fs-5 text-start ">Account Type :</div>
+                <div className="w-50 fs-5 text-end px-3 ">Account Type :</div>
                 <div className=" w-50 form-group">
                   <select
                     className="form-select form-control pt-2 pb-2 mt-2  text-primary rounded-3"
@@ -1074,9 +1085,9 @@ const NewCustomer = () => {
                   </select>
                 </div>
               </div>
-              <div className="d-flex  text-white w-100 justify-content-start align-items-center">
-                <div className="fs-5 w-50 text-start">
-                  May I Know your name :{" "}
+              <div className="d-flex mt-3 text-white w-100 justify-content-start align-items-center">
+                <div className="fs-5 w-50 text-end px-3">
+                  May we know your name :{" "}
                 </div>
                 <div className=" w-50 form-group">
                   <input
@@ -1094,9 +1105,9 @@ const NewCustomer = () => {
                 </div>
               </div>
 
-              <div className="d-flex   text-white w-100 justify-content-around align-items-center">
-                <div className="fs-5 w-50 text-start">
-                  Where should I contact you:
+              <div className="d-flex mt-3  text-white w-100 justify-content-around align-items-center">
+                <div className="fs-5 w-50 text-end px-3">
+                  Where should we contact you:
                 </div>
                 <div className="  w-50 mt-3 form-group">
                   <input
@@ -1113,9 +1124,9 @@ const NewCustomer = () => {
                 </div>
               </div>
 
-              <div className="d-flex  text-white w-100 justify-content-around align-items-center">
-                <div className="fs-5  w-50 text-start">
-                  Can you please help me with your PAN number :{" "}
+              <div className="d-flex mt-3 text-white w-100 justify-content-around align-items-center">
+                <div className="fs-5  w-50 text-end px-3">
+                   Can you please help us with your PAN number :{" "}
                 </div>
                 <div className="   form-group  w-50 ">
                   <input
@@ -1135,15 +1146,17 @@ const NewCustomer = () => {
                 </div>
               </div>
 
-              <div className="d-flex  text-white w-100 justify-content-around align-items-center">
-                <div className="fs-5  w-50 text-start">
-                  Can you please help me with your Aadhar number :
+              <div className="d-flex mt-3  text-white w-100 justify-content-around align-items-center">
+                <div className="fs-5  w-50 text-end px-3">
+                  Can you please help us with your Aadhar number :
                 </div>
                 <div className=" w-50  form-group">
                   <input
                     className=" w-100 px-2 py-1 rounded-2 user-input border-0"
                     placeholder="Aadhar number"
-                    type="text"
+                    maxLength={12}
+                    minLength={12}
+                    type="number"
                     onChange={(e) => {
                       setCustomerDetails({
                         ...customerDetails,
@@ -1154,9 +1167,9 @@ const NewCustomer = () => {
                 </div>
               </div>
 
-              <div className="d-flex  text-white w-100 justify-content-around align-items-center">
-                <div className="fs-5  w-50 text-start">
-                  Where should I call you:
+              <div className="d-flex mt-3 text-white w-100 justify-content-around align-items-center">
+                <div className="fs-5  w-50 text-end px-3">
+                  Where should we call you:
                 </div>
                 <div className="  w-50 form-group">
                   <input
@@ -1185,7 +1198,7 @@ const NewCustomer = () => {
               </div>
 
               <div className="d-flex mt-3 in-left text-white w-100 justify-content-around align-items-center">
-                <div className="fs-5  w-50 text-start">Type of Income : </div>
+                <div className="fs-5  w-50 text-end px-3">Type of Income : </div>
                 <div className="  form-group w-50">
                   <select
                     className="form-select form-control pt-2 pb-2   text-primary rounded-3"
@@ -1245,7 +1258,9 @@ const NewCustomer = () => {
                   customerDetails?.PAN_NO === "" ||
                   customerDetails?.AadharNo === "" ||
                   customerDetails?.MobileNo === "" ||
-                  customerDetails?.Profession === ""
+                  customerDetails?.Profession === "" ||
+                  customerDetails?.PAN_NO.length !== 10 ||
+                  customerDetails?.AadharNo.length !== 12
                 }
                 className="btn btn-success   mx-3 w-25"
                 onClick={() => {
@@ -1276,7 +1291,7 @@ const NewCustomer = () => {
           <>
             <div className="mb-3 text-white w-100 justify-content-around  align-items-center px-5">
               <div className=" d-flex  mb-3 text-white w-100 justify-content-between  align-items-center">
-                <div className="w-50 fs-5 text-start ">Account Type :</div>
+                <div className="w-50 fs-5 text-end px-3 ">Account Type :</div>
                 <div className=" w-50 form-group">
                   <select
                     className="form-select form-control pt-2 pb-2 mt-2  text-primary rounded-3"
@@ -1326,9 +1341,9 @@ const NewCustomer = () => {
                   </select>
                 </div>
               </div>
-              <div className="d-flex  text-white w-100 justify-content-start align-items-center">
-                <div className="fs-5 w-50 text-start">
-                  May I Know your name :{" "}
+              <div className="d-flex mt-3 text-white w-100 justify-content-start align-items-center">
+                <div className="fs-5 w-50 text-end px-3">
+                  May we know your name :{" "}
                 </div>
                 <div className=" w-50 form-group">
                   <input
@@ -1346,9 +1361,9 @@ const NewCustomer = () => {
                 </div>
               </div>
 
-              <div className="d-flex   text-white w-100 justify-content-around align-items-center">
-                <div className="fs-5 w-50 text-start">
-                  Where should I contact you:
+              <div className="d-flex  mt-3 text-white w-100 justify-content-around align-items-center">
+                <div className="fs-5 w-50 text-end px-3">
+                  Where should we contact you:
                 </div>
                 <div className="  w-50 mt-3 form-group">
                   <input
@@ -1365,9 +1380,9 @@ const NewCustomer = () => {
                 </div>
               </div>
 
-              <div className="d-flex  text-white w-100 justify-content-around align-items-center">
-                <div className="fs-5  w-50 text-start">
-                  Can you please help me with your PAN number :{" "}
+              <div className="d-flex mt-3 text-white w-100 justify-content-around align-items-center">
+                <div className="fs-5  w-50 text-end px-3">
+                   Can you please help us with your PAN number :{" "}
                 </div>
                 <div className="  form-group  w-50 ">
                   <input
@@ -1387,14 +1402,16 @@ const NewCustomer = () => {
                 </div>
               </div>
 
-              <div className="d-flex  text-white w-100 justify-content-around align-items-center">
-                <div className="fs-5  w-50 text-start">
-                  Can you please help me with your Aadhar number :
+              <div className="d-flex mt-3 text-white w-100 justify-content-around align-items-center">
+                <div className="fs-5  w-50 text-end px-3">
+                  Can you please help us with your Aadhar number :
                 </div>
                 <div className=" w-50  form-group">
                   <input
                     className=" w-100 px-2 py-1 rounded-2 user-input border-0"
                     placeholder="Aadhar number"
+                    maxLength={12}
+                    minLength={12}
                     type="number"
                     onChange={(e) => {
                       setCustomerDetails({
@@ -1406,9 +1423,9 @@ const NewCustomer = () => {
                 </div>
               </div>
 
-              <div className="d-flex  text-white w-100 justify-content-around align-items-center">
-                <div className="fs-5  w-50 text-start">
-                  Where should I call you:
+              <div className="d-flex mt-3 text-white w-100 justify-content-around align-items-center">
+                <div className="fs-5  w-50 text-end px-3">
+                  Where should we call you:
                 </div>
                 <div className="  w-50 form-group">
                   <input
@@ -1437,7 +1454,7 @@ const NewCustomer = () => {
               </div>
 
               <div className="d-flex mt-3  text-white w-100 justify-content-around align-items-center">
-                <div className="fs-5  w-50 text-start">Type of Income : </div>
+                <div className="fs-5  w-50 text-end px-3">Type of Income : </div>
                 <div className="  form-group w-50">
                   <select
                     className="form-select form-control pt-2 pb-2   text-primary rounded-3"
@@ -1472,7 +1489,11 @@ const NewCustomer = () => {
               </div>
 
               <div className="d-flex in-left mt-3 text-white w-100 justify-content-around align-items-center">
-                <div className="fs-5  w-50 text-start">Employer name : </div>
+                <div className="fs-5  w-50 text-end px-3">
+                  {customerDetails?.Profession === "BUSINESS"
+                    ? " Describe your business"
+                    : "Employer name :"}
+                </div>
                 <div className=" w-50 form-group">
                   <input
                     className=" w-100 px-2 p-1 rounded-2 user-input border-0"
@@ -1516,7 +1537,9 @@ const NewCustomer = () => {
                   customerDetails?.AadharNo === "" ||
                   customerDetails?.MobileNo === "" ||
                   customerDetails?.Profession === "" ||
-                  customerDetails?.EmployerName === ""
+                  customerDetails?.EmployerName === "" ||
+                  customerDetails?.PAN_NO.length !== 10 ||
+                  customerDetails?.AadharNo.length !== 12
                 }
                 onClick={() => {
                   if (
@@ -1547,7 +1570,7 @@ const NewCustomer = () => {
           <>
             <div className="mb-3 text-white w-100 justify-content-around  align-items-center px-5">
               <div className=" d-flex   mb-3 text-white w-100 justify-content-between  align-items-center">
-                <div className="w-50 fs-5 text-start ">Account Type :</div>
+                <div className="w-50 fs-5 text-end px-3 ">Account Type :</div>
                 <div className=" w-50 form-group">
                   <select
                     className="form-select form-control pt-2 pb-2 mt-2  text-primary rounded-3"
@@ -1597,9 +1620,9 @@ const NewCustomer = () => {
                   </select>
                 </div>
               </div>
-              <div className="d-flex  text-white w-100 justify-content-start align-items-center">
-                <div className="fs-5 w-50 text-start">
-                  May I Know your name :{" "}
+              <div className="d-flex mt-3 text-white w-100 justify-content-start align-items-center">
+                <div className="fs-5 w-50 text-end px-3">
+                  May we know your name :{" "}
                 </div>
                 <div className=" w-50 form-group">
                   <input
@@ -1617,13 +1640,13 @@ const NewCustomer = () => {
                 </div>
               </div>
 
-              <div className="d-flex  text-white w-100 justify-content-around align-items-center">
-                <div className="fs-5 w-50 text-start">
-                  Where should I contact you:
+              <div className="d-flex mt-3 text-white w-100 justify-content-around align-items-center">
+                <div className="fs-5 w-50 text-end px-3">
+                  Where should we contact you:
                 </div>
-                <div className="  w-50 mt-3 form-group">
+                <div className="  w-50  form-group">
                   <input
-                    className=" w-100 px-2 py-1 rounded-2 user-input border-0"
+                    className=" w-100 px-2 p-1 rounded-2 user-input border-0"
                     placeholder="Address"
                     type="text"
                     onChange={(e) => {
@@ -1636,9 +1659,9 @@ const NewCustomer = () => {
                 </div>
               </div>
 
-              <div className="d-flex  text-white w-100 justify-content-around align-items-center">
-                <div className="fs-5  w-50 text-start">
-                  Can you please help me with your PAN number :{" "}
+              <div className="d-flex mt-3 text-white w-100 justify-content-around align-items-center">
+                <div className="fs-5  w-50 text-end px-3 ">
+                   Can you please help us with your PAN number :{" "}
                 </div>
                 <div className="  form-group  w-50 ">
                   <input
@@ -1658,15 +1681,17 @@ const NewCustomer = () => {
                 </div>
               </div>
 
-              <div className="d-flex   text-white w-100 justify-content-around align-items-center">
-                <div className="fs-5  w-50 text-start">
-                  Can you please help me with your Aadhar number :
+              <div className="d-flex mt-3  text-white w-100 justify-content-around align-items-center">
+                <div className="fs-5  w-50 text-end px-3">
+                  Can you please help us with your Aadhar number :
                 </div>
                 <div className=" w-50  form-group">
                   <input
-                    className=" w-100 px-2 py-1 rounded-2 user-input border-0"
+                    className=" w-100 px-2 py-1  rounded-2 user-input border-0"
                     placeholder="Aadhar number"
                     type="number"
+                    maxLength={12}
+                    minLength={12}
                     onChange={(e) => {
                       setCustomerDetails({
                         ...customerDetails,
@@ -1677,9 +1702,9 @@ const NewCustomer = () => {
                 </div>
               </div>
 
-              <div className="d-flex  text-white w-100 justify-content-around align-items-center">
-                <div className="fs-5  w-50 text-start">
-                  Where should I call you:
+              <div className="d-flex mt-3 text-white w-100 justify-content-around align-items-center">
+                <div className="fs-5  w-50 text-end px-3">
+                  Where should we call you:
                 </div>
                 <div className="  w-50 form-group">
                   <input
@@ -1708,7 +1733,7 @@ const NewCustomer = () => {
               </div>
 
               <div className="d-flex mt-3  text-white w-100  justify-content-around align-items-center">
-                <div className="fs-5  w-50 text-start">Type of Income : </div>
+                <div className="fs-5  w-50 text-end px-3">Type of Income : </div>
                 <div className="  form-group w-50">
                   <select
                     className="form-select form-control pt-2 pb-2   text-primary rounded-3"
@@ -1742,8 +1767,12 @@ const NewCustomer = () => {
                 </div>
               </div>
 
-              <div className="d-flex  mt-3 text-white w-100 justify-content-around align-items-center">
-                <div className="fs-5  w-50 text-start">Employer name : </div>
+              <div className="d-flex mt-3 text-white w-100 justify-content-around align-items-center">
+                <div className="fs-5  w-50 text-end px-3">
+                  {customerDetails?.Profession === "BUSINESS"
+                    ? " Describe your business"
+                    : "Employer name"}{" "}
+                </div>
                 <div className=" w-50 form-group">
                   <input
                     className=" w-100 px-2 p-1 rounded-2 user-input border-0"
@@ -1760,7 +1789,7 @@ const NewCustomer = () => {
               </div>
 
               <div className="d-flex in-left mt-3 text-white w-100 justify-content-around align-items-center">
-                <div className="fs-5   w-50 text-start">Monthly Income : </div>
+                <div className="fs-5   w-50 text-end px-3">Monthly Income : </div>
                 <div className=" w-50 form-group">
                   <input
                     className=" w-100 px-2 p-1 rounded-2 user-input border-0"
@@ -1803,7 +1832,9 @@ const NewCustomer = () => {
                   customerDetails?.MobileNo === "" ||
                   customerDetails?.Profession === "" ||
                   customerDetails?.EmployerName === "" ||
-                  customerDetails?.MonthlySalary === ""
+                  customerDetails?.MonthlySalary === "" ||
+                  customerDetails?.PAN_NO.length !== 10 ||
+                  customerDetails?.AadharNo.length !== 12
                 }
                 type="button"
                 className="btn btn-success  mx-3 w-25"
@@ -2013,8 +2044,10 @@ const NewCustomer = () => {
         </ul>
       </div>
       {applyNow ? (
-        <div class="d-flex flex-row w-100 mb-3 mt-3 py-3 px-2 align-items-center  ">
-          <div class=" d-flex w-50  align-items-center justify-content-center">
+        <div className="d-flex flex-row w-100 mb-3 mt-3 py-3 px-2 align-items-center  ">
+          <div  className=" d-flex w-25  align-items-center justify-content-center mx-5"
+          
+          >
             <video
               className="video-size"
               autoPlay={true}
@@ -2025,17 +2058,21 @@ const NewCustomer = () => {
               src="https://dza2kd7rioahk.cloudfront.net/assets/videos/home-page_poster.webm"
             />
           </div>
-          <div className="  w-50">
+          <div className="  w-75">
             {showscustomerID ? (
               <div className="w-100  ">
-                <div className="d-flex justify-content-around  align-items-center">
-                  <div className="w-25 fw-bold text-start text-info ">
-                    Customer ID:
+                {response?.CustomerID ? (
+                  <div className="d-flex justify-content-around  align-items-center">
+                    <div className="w-25 fw-bold text-start text-info ">
+                      Customer ID:
+                    </div>
+                    <div className="w-75 text-start text-white ">
+                      {response?.CustomerID}
+                    </div>
                   </div>
-                  <div className="w-75 text-start text-white ">
-                    {response?.CustomerID}
-                  </div>
-                </div>
+                ) : (
+                  ""
+                )}
                 <div className="d-flex mt-3 justify-content-between  align-items-center">
                   <div className="w-25 fw-bold  text-start text-info ">
                     ApplicationStatus :
@@ -2046,73 +2083,20 @@ const NewCustomer = () => {
                 </div>
               </div>
             ) : (
+              // <getComponents
+              //   id={id}
+              //   setSearchParams={setSearchParams}
+              //   setCustomerDetails={setCustomerDetails}
+              //   customerDetails={customerDetails}
+              //   setApplyNow={setApplyNow}
+              //   setMobileNumber={setMobileNumber}
+              //   mobileNumber={mobileNumber}
+              //   setLoading={setLoading}
+              //   customerOnboard={customerOnboard}
+              //   type={type}
+              // />
               getComponents(id)
             )}
-
-            {/* <div className="mb-3 in-left text-white  w-100 justify-content-around  align-items-center px-5 ">
-              <div className=" d-flex  mb-3  text-white w-100 justify-content-between  align-items-center">
-                <div className="w-50 fs-5  text-start ">Account Type :</div>
-                <div className=" w-50 form-group">
-                  <select
-                    className="form-select form-control pt-2 pb-2 mt-2  text-primary rounded-3"
-                    aria-label="Default select example"
-                    id="account"
-                    onChange={(e) => {
-                      setSearchParams((prev) => {
-                        prev.set("type", e?.target?.value);
-
-                        return prev;
-                      });
-                      setCustomerDetails({
-                        ...customerDetails,
-                        AccountsType: e?.target?.value,
-                      });
-                    }}
-                  >
-                    <option
-                      disabled
-                      selected={customerDetails?.AccountsType === ""}
-                      label=" Select Account Type"
-                    />
-                    <option
-                      selected={customerDetails?.AccountsType === "CORPORATE"}
-                      value="CORPORATE"
-                    >
-                      CORPORATE
-                    </option>
-                    <option
-                      selected={customerDetails?.AccountsType === "SAVINGS"}
-                      value="SAVINGS"
-                    >
-                      SAVINGS
-                    </option>
-                    <option
-                      selected={customerDetails?.AccountsType === "LOAN"}
-                      value="LOAN"
-                    >
-                      LOAN
-                    </option>
-                    <option
-                      selected={customerDetails?.AccountsType === "CREDITCARD"}
-                      value="CREDITCARD"
-                    >
-                      CREDIT CARD
-                    </option>
-                  </select>
-                </div>
-              </div>
-            </div>
-            <div>
-              {customerDetails?.AccountsType === "SAVINGS" ? (
-                <>
-                  {data?.SAVINGS.map((val, index) => (
-                    <div>{comprender(val)}</div>
-                  ))}
-                </>
-              ) : (
-                ""
-              )}
-            </div> */}
           </div>
         </div>
       ) : (

@@ -18,7 +18,7 @@ const GeneralOptions = (props) => {
   const options = [
     {
       name: "Open A new CORPORATE account",
-      handler: props.actionProvider.handleCorporateBalance,
+      handler: props.actionProvider.handleNewCorporateAccount,
       id: 1,
     },
     {

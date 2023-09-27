@@ -6,11 +6,11 @@ import { validateMob, validatePan } from "../../../Utils/Validation";
 import { AppContext } from "../../../context/AppContext";
 import LoadingSpinner from "../../../Screens/Spinner/spinner";
 
-const NewLoanAccount = () => {
+const NewCorporateAccount = () => {
   const [open, setOpen] = useState(true);
   const { apiUrl } = useContext(AppContext);
   const [userdetails, setuserdetails] = useState({
-    AccountsType: "LOAN",
+    AccountsType: "SAVINGS",
     CustName: "",
     CustAddress: "",
     PAN_NO: "",
@@ -215,7 +215,7 @@ const NewLoanAccount = () => {
                       }}
                       value={mobileNumber}
                     />
-                    <div className=" w-100 mt-2 justify-content-around align-items-center">
+                    {/* <div className=" w-100 mt-2 justify-content-around align-items-center">
                       <div className="">Type of Income </div>
                       <div className=" mt-1 form-group">
                         <select
@@ -288,7 +288,7 @@ const NewLoanAccount = () => {
                         });
                       }}
                       value={userdetails.MonthlySalary}
-                    />
+                    /> */}
 
                     <button
                       disabled={
@@ -298,9 +298,9 @@ const NewLoanAccount = () => {
                         userdetails?.PAN_NO === "" ||
                         userdetails?.AadharNo === "" ||
                         userdetails?.MobileNo === "" ||
-                        userdetails?.Profession === "" ||
-                        userdetails?.EmployerName === "" ||
-                        userdetails?.MonthlySalary === "" ||
+                        // userdetails?.Profession === "" ||
+                        // userdetails?.EmployerName === "" ||
+                        // userdetails?.MonthlySalary === "" ||
                         userdetails?.PAN_NO.length !== 10 ||
                         userdetails?.AadharNo.length !== 12
                       }
@@ -313,10 +313,10 @@ const NewLoanAccount = () => {
                           userdetails?.CustAddress !== "" &&
                           userdetails?.PAN_NO !== "" &&
                           userdetails?.AadharNo !== "" &&
-                          userdetails?.MobileNo !== "" &&
-                          userdetails?.Profession !== "" &&
-                          userdetails?.EmployerName !== "" &&
-                          userdetails?.MonthlySalary !== ""
+                          userdetails?.MobileNo !== "" 
+                          // userdetails?.Profession !== "" &&
+                          // userdetails?.EmployerName !== "" &&
+                          // userdetails?.MonthlySalary !== ""
                         ) {
                           setLoading(true);
 
@@ -339,4 +339,4 @@ const NewLoanAccount = () => {
   );
 };
 
-export default NewLoanAccount;
+export default NewCorporateAccount;

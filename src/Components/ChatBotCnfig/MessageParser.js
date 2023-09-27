@@ -7,9 +7,7 @@ const MessageParser = ({ children, actions }) => {
     console.log(message);
 
     const messages = message.toLowerCase();
-    // if(data.includes(message)){
-    //   actions.handleJoke();
-    // }
+    
     if (messages.includes("stats")) {
       actions.handleLocalStats();
     }
@@ -28,7 +26,7 @@ const MessageParser = ({ children, actions }) => {
     if (messages.includes("medical")) {
       actions.handleMedicine();
     }
-    actions.handleOptions();
+    // actions.handleOptions();
   };
 
   return (

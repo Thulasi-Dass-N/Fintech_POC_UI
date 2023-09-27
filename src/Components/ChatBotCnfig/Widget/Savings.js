@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import "../../../App.css";
-
+// import LoadingSpinner from "../../../Screens/Spinner/spinner";
 import Modal from "../../Modal";
 
-import ClipLoader from "react-spinners/ClipLoader";
 const SavingsBalance = () => {
   const [open, setOpen] = useState(true);
   const [verifyOtp, setVerifyOtp] = useState(false);
@@ -15,7 +14,7 @@ const SavingsBalance = () => {
 
   const [balanceView, setBalanceView] = useState(false);
   const [error, setError] = useState("");
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   const login = async (userDetails) => {
     console.log(userDetails, "hello");
@@ -39,6 +38,7 @@ const SavingsBalance = () => {
         if (resp.StatusCode === "LOGIN SUCCESSFUL") {
           setBalanceView(true);
           setAccountBalance(resp.AccountBalance);
+          setLoading(false);
         }
         if (resp.StatusCode === "LOGIN FAILED - CUSTOMER ID DOES NOT EXIST") {
           setError("Credentials error !!");
@@ -50,20 +50,22 @@ const SavingsBalance = () => {
       })
       .catch((e) => {
         console.log(e, "error");
+        setLoading(false);
       });
   };
 
   const closeModal = () => {
     setOpen(!open);
   };
-
+  // const closeModal1 = () => {};
   return (
     <div className="">
-      <ClipLoader color={"#fff"} loading={loading} />
-
       {open && (
         <Modal className="" isOpen={true} onClose={closeModal}>
           <div className=" bg-white border border-2 rounded-2">
+            {/* <Modal className="backdrop" isOpen={loading} onClose={closeModal1}>
+              <LoadingSpinner />
+            </Modal> */}
             {error ? (
               <div className="p-3 text-center text-danger fs-6">{error}</div>
             ) : (
@@ -152,6 +154,7 @@ const SavingsBalance = () => {
                             if (userdetails) {
                               //Api call
                               // setUserdetails({});
+                              setLoading(true);
                               login(userdetails);
                               setVerifyOtp(false);
                             } else {

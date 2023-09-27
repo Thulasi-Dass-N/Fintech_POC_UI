@@ -7,6 +7,8 @@ import MedicineDelivery from "./Widget/Loan";
 import SavingsBalance from "./Widget/Savings";
 import CorporateBalance from "./Widget/CorporateAccount";
 import NewSavingsAccount from "./Widget/NewSavings";
+import NewCorporateAccount from "./Widget/NewCorporateAccount";
+import CoBotAvatar from "./BotAvatar";
 
 import React from "react";
 
@@ -18,13 +20,10 @@ const config = {
   // Defines an array of initial messages that will be displayed on first render
   initialMessages: [
     createChatBotMessage(`Hi I'm ${botName}`),
-    createChatBotMessage(
-      "First things first, which airport are you looking for information from?",
-      {
-        widget: "overview",
-        delay: 500,
-      }
-    ),
+    createChatBotMessage("Please select the below option to continue", {
+      widget: "overview",
+      delay: 500,
+    }),
   ],
   // Defines an object that will be injected into the chatbot state, you can use this state in widgets for example
   state: {
@@ -62,6 +61,7 @@ const config = {
       backgroundColor: "#5ccc9d",
     },
   },
+  customComponents: { botAvatar: (props) => <CoBotAvatar {...props} /> },
   // Defines an array of widgets that you want to render with a chatbot message
   widgets: [
     {
@@ -72,7 +72,7 @@ const config = {
       // Any props you want the widget to receive on render
       props: {},
       // Any piece of state defined in the state object that you want to pass down to this widget
-      mapStateToProps: ["selectedFlightId", "selectedFlight"],
+      mapStateToProps: ["messages"],
     },
     {
       widgetName: "globalStatistics",
@@ -106,7 +106,12 @@ const config = {
       widgetName: "handleCorporateBalance",
       widgetFunc: (props) => <CorporateBalance />,
     },
+    {
+      widgetName: "handleNewCorporateAccount",
+      widgetFunc: (props) => <NewCorporateAccount />,
+    },
   ],
 };
+//handleNewCorporateAccount
 
 export default config;
