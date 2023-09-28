@@ -68,6 +68,7 @@ const NewCustomer = () => {
       headers: {
         "Content-type": "application/json; charset=UTF-8",
         "api-key": finApiUrl?.api_key,
+        "Access-Control-Allow-Origin": "*",
       },
     })
       .then((response) => response.json())

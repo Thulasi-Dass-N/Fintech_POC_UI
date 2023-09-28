@@ -50,6 +50,7 @@ const HomeScreen = () => {
       headers: {
         "Content-type": "application/json; charset=UTF-8",
         "api-key": apiUrl?.api_key,
+        "Access-Control-Allow-Origin": "*",
       },
     })
       .then((response) => response.json())
@@ -81,6 +82,7 @@ const HomeScreen = () => {
       headers: {
         "Content-type": "application/json; charset=UTF-8",
         "api-key": apiUrl?.api_key,
+        "Access-Control-Allow-Origin": "*",
       },
     })
       .then((response) => response.json())
@@ -130,6 +132,7 @@ const HomeScreen = () => {
       headers: {
         "Content-type": "application/json; charset=UTF-8",
         "api-key": apiUrl?.api_key,
+        "Access-Control-Allow-Origin": "*",
       },
     })
       .then((response) => response.json())
