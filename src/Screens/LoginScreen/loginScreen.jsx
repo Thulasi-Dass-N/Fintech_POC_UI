@@ -37,7 +37,7 @@ const Loginscreen = () => {
       }),
       headers: {
         "Content-type": "application/json; charset=UTF-8",
-        "api-key" : apiUrl?.APIKey,
+        "api-key" : apiUrl?.api_key,
       },
     })
       .then((response) => response.json())

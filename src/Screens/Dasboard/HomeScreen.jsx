@@ -49,12 +49,14 @@ const HomeScreen = () => {
       method: "GET",
       headers: {
         "Content-type": "application/json; charset=UTF-8",
-        "api-key": apiUrl?.APIKey,
+        "api-key": apiUrl?.api_key,
       },
     })
       .then((response) => response.json())
       .then((resp) => {
         const value = resp?.Accounts;
+
+        console.log(resp, "benfit");
 
         value.splice(
           value.findIndex((a) => a.AccountNumber === user.AccountNumber),
@@ -78,7 +80,7 @@ const HomeScreen = () => {
       }),
       headers: {
         "Content-type": "application/json; charset=UTF-8",
-        "api-key": apiUrl?.APIKey,
+        "api-key": apiUrl?.api_key,
       },
     })
       .then((response) => response.json())
@@ -97,75 +99,58 @@ const HomeScreen = () => {
   };
 
   const FundTransfer = () => {
-    const total = transferDetails?.Amount
-      ? transferDetails?.Amount
-      : 0 + transferDetails1?.Amount
-      ? transferDetails1?.Amount
-      : 0;
-    if (total > Number(user?.AccountBalance)) {
-      setError("INSUFFICIENT FUNDS");
-      setTransferDetails({
-        ...transferDetails,
-        Amount: "",
-      });
-      setTransferDetails1({
-        ...transferDetails1,
-        Amount: "",
-      });
-      setLoading(false);
-    } else {
-      fetch(`http://${apiUrl.ip_port}/transferfunds`, {
-        method: "POST",
-        body: JSON.stringify({
-          CustomerID: data?.CustomerID,
-          AccountNumber: data?.AccountNumber,
+    setLoading(true);
+    fetch(`http://${apiUrl.ip_port}/transferfunds`, {
+      method: "POST",
+      body: JSON.stringify({
+        CustomerID: data?.CustomerID,
+        AccountNumber: data?.AccountNumber,
 
-          Transactions: addTransfer
-            ? [
-                {
-                  ToAccountNumber: transferDetails?.ToAccountNumber,
-                  Amount: Number(transferDetails?.Amount),
-                  TransactionNotes: transferDetails?.TransactionNotes,
-                },
-                {
-                  ToAccountNumber: transferDetails1?.ToAccountNumber,
-                  Amount: Number(transferDetails1?.Amount),
-                  TransactionNotes: transferDetails1?.TransactionNotes,
-                },
-              ]
-            : [
-                {
-                  ToAccountNumber: transferDetails?.ToAccountNumber,
-                  Amount: Number(transferDetails?.Amount),
-                  TransactionNotes: transferDetails?.TransactionNotes,
-                },
-              ],
-        }),
-        headers: {
-          "Content-type": "application/json; charset=UTF-8",
-          "api-key": apiUrl?.APIKey,
-        },
+        Transactions: addTransfer
+          ? [
+              {
+                ToAccountNumber: transferDetails?.ToAccountNumber,
+                Amount: Number(transferDetails?.Amount),
+                TransactionNotes: transferDetails?.TransactionNotes,
+              },
+              {
+                ToAccountNumber: transferDetails1?.ToAccountNumber,
+                Amount: Number(transferDetails1?.Amount),
+                TransactionNotes: transferDetails1?.TransactionNotes,
+              },
+            ]
+          : [
+              {
+                ToAccountNumber: transferDetails?.ToAccountNumber,
+                Amount: Number(transferDetails?.Amount),
+                TransactionNotes: transferDetails?.TransactionNotes,
+              },
+            ],
+      }),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+        "api-key": apiUrl?.api_key,
+      },
+    })
+      .then((response) => response.json())
+      .then((resp) => {
+        if (resp.StatusCode === "LOGIN SUCCESSFUL") {
+          login();
+        }
+        if (resp.StatusCode === "LOGIN FAILED - CUSTOMER ID DOES NOT EXIST") {
+          setError("FAILED");
+          setLoading(true);
+        }
       })
-        .then((response) => response.json())
-        .then((resp) => {
-          if (resp.StatusCode === "LOGIN SUCCESSFUL") {
-            login();
-          }
-          if (resp.StatusCode === "LOGIN FAILED - CUSTOMER ID DOES NOT EXIST") {
-            setError("FAILED");
-          }
-        })
-        .catch((err) => {
-          setError(err);
-          console.error(err);
-          setLoading(false);
-        });
-    }
+      .catch((err) => {
+        setError(err);
+        console.error(err);
+        setLoading(false);
+      });
   };
   const closeModal = () => {
     setSucces(!success);
   };
-
 
   const closeModal1 = () => {
     // setSucces(!success);
@@ -199,13 +184,14 @@ const HomeScreen = () => {
               className="user-input border border-1 p-1 rounded-1 bg-secondary bg-opacity-25 "
               id=""
               placeholder=" port number"
+              defaultValue={apiUrl?.ip_port || ""}
               onChange={(e) => {
                 setPort({
                   ...port,
                   ipAddress: e?.target?.value,
                 });
               }}
-              value={apiUrl?.ip_port}
+              // value={port?.ipAddress}
             />
           </div>
           <div
@@ -228,7 +214,7 @@ const HomeScreen = () => {
                   APIKey: e?.target?.value,
                 });
               }}
-              value={apiUrl?.api_key}
+              defaultValue={apiUrl?.api_key}
             />
           </div>
           <div className="d-flex mt-4  w-100 justify-content-evenly ">
@@ -238,8 +224,8 @@ const HomeScreen = () => {
               onClick={() => {
                 setapiUrl({
                   ...apiUrl,
-                  ip_port: port?.ipAddress,
-                  api_key: port?.APIKey,
+                  ip_port: port?.ipAddress ? port?.ipAddress : apiUrl?.ip_port,
+                  api_key: port?.APIKey ? port?.APIKey : apiUrl?.api_key,
                 });
                 setSucces(false);
               }}
@@ -335,7 +321,7 @@ const HomeScreen = () => {
             }}
             onClick={() => {
               setUser({});
-              navigate("/");
+              navigate("/login");
             }}
           >
             <div
@@ -543,7 +529,7 @@ const HomeScreen = () => {
                     className=" px-5  border border-0 bg-primary text-center rounded-2 text-white  "
                     role="presentation"
                     onClick={() => {
-                      setLoading(true);
+                      console.log(user);
                       if (
                         addTransfer &&
                         transferDetails.ToAccountNumber !== "" &&
@@ -553,15 +539,15 @@ const HomeScreen = () => {
                         transferDetails1.Amount > 0 &&
                         transferDetails1.TransactionNotes !== ""
                       ) {
-                        setLoading(true);
                         if (
                           Number(
                             transferDetails.Amount + transferDetails1.Amount
-                          ) > Number(user?.Amount)
+                          ) < Number(user?.AccountBalance)
                         ) {
                           FundTransfer();
                         } else {
                           setError("INSUFFICIENT FUNDS");
+                          setLoading(false);
                         }
                       } else if (
                         !addTransfer &&
@@ -569,14 +555,18 @@ const HomeScreen = () => {
                         transferDetails.Amount > 0 &&
                         transferDetails.TransactionNotes !== ""
                       ) {
-                        setLoading(true);
-
                         if (
-                          Number(transferDetails.Amount) > Number(user?.Amount)
+                          Number(transferDetails.Amount) <
+                          Number(user?.AccountBalance)
                         ) {
                           FundTransfer();
                         } else {
+                          console.log(
+                            user?.AccountBalance,
+                            transferDetails.Amount
+                          );
                           setError("INSUFFICIENT FUNDS");
+                          setLoading(false);
                         }
                       } else {
                         setError("Please fill all the feilds");

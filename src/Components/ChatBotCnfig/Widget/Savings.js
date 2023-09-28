@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "../../../App.css";
 // import LoadingSpinner from "../../../Screens/Spinner/spinner";
 import Modal from "../../Modal";
+import { AppContext } from "../../../context/AppContext";
 
 const SavingsBalance = () => {
+  const { apiUrl } = useContext(AppContext);
   const [open, setOpen] = useState(true);
+
   const [verifyOtp, setVerifyOtp] = useState(false);
   const [userdetails, setUserdetails] = useState({
     UserID: "",
@@ -14,21 +17,21 @@ const SavingsBalance = () => {
 
   const [balanceView, setBalanceView] = useState(false);
   const [error, setError] = useState("");
+  // eslint-disable-next-line no-unused-vars
   const [loading, setLoading] = useState(false);
 
   const login = async (userDetails) => {
     console.log(userDetails, "hello");
     setLoading(true);
-    fetch("http://3.108.222.3:8080/login", {
+    fetch(`http://${apiUrl.ip_port}/login`, {
       method: "POST",
       body: JSON.stringify({
-        // UserID: "SA-1000002",
-        // Password: "string",
         UserID: userDetails.UserID,
         Password: userDetails.Password,
       }),
       headers: {
         "Content-type": "application/json; charset=UTF-8",
+        "api-key": apiUrl?.api_key,
       },
     })
       .then((response) => response.json())

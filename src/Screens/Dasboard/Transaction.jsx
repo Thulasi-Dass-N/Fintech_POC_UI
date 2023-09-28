@@ -13,8 +13,7 @@ const FundTransaction = ({
   console.log(selectedAccount);
 
   const SelectedAccount = (data) => {
-    console.log(data, "data");
-    console.log(account, "Account");
+
     if (account === data) {
       setError("Account already selected");
     } else {

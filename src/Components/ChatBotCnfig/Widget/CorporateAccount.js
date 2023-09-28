@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import "../../../App.css";
 import Modal from "../../Modal";
+import { AppContext } from "../../../context/AppContext";
 
 import ClipLoader from "react-spinners/ClipLoader";
 const CorporateBalance = () => {
+  const { apiUrl } = useContext(AppContext);
   const [open, setOpen] = useState(true);
   const [verifyOtp, setVerifyOtp] = useState(false);
   const [userdetails, setUserdetails] = useState({
@@ -19,16 +21,15 @@ const CorporateBalance = () => {
   const login = async (userDetails) => {
     console.log(userDetails, "hello");
     setLoading(true);
-    fetch("http://3.108.222.3:8080/login", {
+    fetch(`http://${apiUrl.ip_port}/login`, {
       method: "POST",
       body: JSON.stringify({
-        // UserID: "SA-1000002",
-        // Password: "string",
         UserID: userDetails.UserID,
         Password: userDetails.Password,
       }),
       headers: {
         "Content-type": "application/json; charset=UTF-8",
+        "api-key": apiUrl?.api_key,
       },
     })
       .then((response) => response.json())

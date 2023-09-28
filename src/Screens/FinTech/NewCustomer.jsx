@@ -11,7 +11,7 @@ import { nameValid, validateMob, validatePan } from "../../Utils/Validation";
 
 const NewCustomer = () => {
   const [applyNow, setApplyNow] = useState(false);
-  const { apiUrl, setapiUrl } = useContext(AppContext);
+  const { finApiUrl, setFinApiUrl } = useContext(AppContext);
   const [loading, setLoading] = useState(false);
   const [mobileNumber, setMobileNumber] = useState("");
   const [response, setResponse] = useState("");
@@ -52,7 +52,7 @@ const NewCustomer = () => {
   const customerOnboard = () => {
     setLoading(true);
 
-    fetch(`http://${apiUrl.ip_port}/apply`, {
+    fetch(`http://${finApiUrl?.ip_port}/apply`, {
       method: "POST",
       body: JSON.stringify({
         AccountsType: customerDetails?.AccountsType,
@@ -67,7 +67,7 @@ const NewCustomer = () => {
       }),
       headers: {
         "Content-type": "application/json; charset=UTF-8",
-        "api-key": apiUrl?.APIKey,
+        "api-key": finApiUrl?.api_key,
       },
     })
       .then((response) => response.json())
@@ -543,7 +543,7 @@ const NewCustomer = () => {
 
               <div className="d-flex mt-3 in-left text-white w-100 justify-content-around align-items-center ">
                 <div className="fs-5  w-50 text-end px-3">
-                   Can you please help us with your PAN number :{" "}
+                  Can you please help us with your PAN number :{" "}
                 </div>
                 <div className="  form-group  w-50 ">
                   <input
@@ -704,7 +704,7 @@ const NewCustomer = () => {
 
               <div className="d-flex  mt-3 text-white w-100 justify-content-around align-items-center">
                 <div className="fs-5  w-50 text-end px-3">
-                   Can you please help us with your PAN number :{" "}
+                  Can you please help us with your PAN number :{" "}
                 </div>
                 <div className="  form-group  w-50 ">
                   <input
@@ -891,7 +891,7 @@ const NewCustomer = () => {
 
               <div className="d-flex mt-3 text-white  w-100 justify-content-around align-items-center">
                 <div className="fs-5  w-50 text-end px-3">
-                   Can you please help us with your PAN number :{" "}
+                  Can you please help us with your PAN number :{" "}
                 </div>
                 <div className="  form-group  w-50 ">
                   <input
@@ -1126,7 +1126,7 @@ const NewCustomer = () => {
 
               <div className="d-flex mt-3 text-white w-100 justify-content-around align-items-center">
                 <div className="fs-5  w-50 text-end px-3">
-                   Can you please help us with your PAN number :{" "}
+                  Can you please help us with your PAN number :{" "}
                 </div>
                 <div className="   form-group  w-50 ">
                   <input
@@ -1198,7 +1198,9 @@ const NewCustomer = () => {
               </div>
 
               <div className="d-flex mt-3 in-left text-white w-100 justify-content-around align-items-center">
-                <div className="fs-5  w-50 text-end px-3">Type of Income : </div>
+                <div className="fs-5  w-50 text-end px-3">
+                  Type of Income :{" "}
+                </div>
                 <div className="  form-group w-50">
                   <select
                     className="form-select form-control pt-2 pb-2   text-primary rounded-3"
@@ -1382,7 +1384,7 @@ const NewCustomer = () => {
 
               <div className="d-flex mt-3 text-white w-100 justify-content-around align-items-center">
                 <div className="fs-5  w-50 text-end px-3">
-                   Can you please help us with your PAN number :{" "}
+                  Can you please help us with your PAN number :{" "}
                 </div>
                 <div className="  form-group  w-50 ">
                   <input
@@ -1454,7 +1456,9 @@ const NewCustomer = () => {
               </div>
 
               <div className="d-flex mt-3  text-white w-100 justify-content-around align-items-center">
-                <div className="fs-5  w-50 text-end px-3">Type of Income : </div>
+                <div className="fs-5  w-50 text-end px-3">
+                  Type of Income :{" "}
+                </div>
                 <div className="  form-group w-50">
                   <select
                     className="form-select form-control pt-2 pb-2   text-primary rounded-3"
@@ -1661,7 +1665,7 @@ const NewCustomer = () => {
 
               <div className="d-flex mt-3 text-white w-100 justify-content-around align-items-center">
                 <div className="fs-5  w-50 text-end px-3 ">
-                   Can you please help us with your PAN number :{" "}
+                  Can you please help us with your PAN number :{" "}
                 </div>
                 <div className="  form-group  w-50 ">
                   <input
@@ -1733,7 +1737,9 @@ const NewCustomer = () => {
               </div>
 
               <div className="d-flex mt-3  text-white w-100  justify-content-around align-items-center">
-                <div className="fs-5  w-50 text-end px-3">Type of Income : </div>
+                <div className="fs-5  w-50 text-end px-3">
+                  Type of Income :{" "}
+                </div>
                 <div className="  form-group w-50">
                   <select
                     className="form-select form-control pt-2 pb-2   text-primary rounded-3"
@@ -1789,7 +1795,9 @@ const NewCustomer = () => {
               </div>
 
               <div className="d-flex in-left mt-3 text-white w-100 justify-content-around align-items-center">
-                <div className="fs-5   w-50 text-end px-3">Monthly Income : </div>
+                <div className="fs-5   w-50 text-end px-3">
+                  Monthly Income :{" "}
+                </div>
                 <div className=" w-50 form-group">
                   <input
                     className=" w-100 px-2 p-1 rounded-2 user-input border-0"
@@ -1901,7 +1909,7 @@ const NewCustomer = () => {
                   ipAddress: e?.target?.value,
                 });
               }}
-              value={apiUrl?.ip_port}
+              defaultValue={finApiUrl?.ip_port || ""}
             />
           </div>
           <div
@@ -1924,7 +1932,7 @@ const NewCustomer = () => {
                   APIKey: e?.target?.value,
                 });
               }}
-              value={apiUrl?.api_key}
+              defaultValue={finApiUrl?.api_key}
             />
           </div>
           <div className="d-flex mt-4  w-100 justify-content-evenly ">
@@ -1932,10 +1940,12 @@ const NewCustomer = () => {
               role="presentation"
               className="px-3 border border-1 w-25 text-center bg-success text-white rounded-2"
               onClick={() => {
-                setapiUrl({
-                  ...apiUrl,
-                  ip_port: port?.ipAddress,
-                  api_key: port?.APIKey,
+                setFinApiUrl({
+                  ...finApiUrl,
+                  ip_port: port?.ipAddress
+                    ? port?.ipAddress
+                    : finApiUrl?.ip_port,
+                  api_key: port?.APIKey ? port?.APIKey : finApiUrl?.api_key,
                 });
                 setSucces(false);
               }}
@@ -2045,9 +2055,7 @@ const NewCustomer = () => {
       </div>
       {applyNow ? (
         <div className="d-flex flex-row w-100 mb-3 mt-3 py-3 px-2 align-items-center  ">
-          <div  className=" d-flex w-25  align-items-center justify-content-center mx-5"
-          
-          >
+          <div className=" d-flex w-25  align-items-center justify-content-center mx-5">
             <video
               className="video-size"
               autoPlay={true}
@@ -2061,6 +2069,19 @@ const NewCustomer = () => {
           <div className="  w-75">
             {showscustomerID ? (
               <div className="w-100  ">
+                {/* AppicationRefNo */}
+                {response?.AppicationRefNo !== "NaN" ? (
+                  <div className="d-flex justify-content-around  align-items-center">
+                    <div className="w-25 fw-bold text-start text-info ">
+                      Application No:
+                    </div>
+                    <div className="w-75 text-start text-white ">
+                      {response?.AppicationRefNo}
+                    </div>
+                  </div>
+                ) : (
+                  ""
+                )}
                 {response?.CustomerID ? (
                   <div className="d-flex justify-content-around  align-items-center">
                     <div className="w-25 fw-bold text-start text-info ">
@@ -2083,18 +2104,6 @@ const NewCustomer = () => {
                 </div>
               </div>
             ) : (
-              // <getComponents
-              //   id={id}
-              //   setSearchParams={setSearchParams}
-              //   setCustomerDetails={setCustomerDetails}
-              //   customerDetails={customerDetails}
-              //   setApplyNow={setApplyNow}
-              //   setMobileNumber={setMobileNumber}
-              //   mobileNumber={mobileNumber}
-              //   setLoading={setLoading}
-              //   customerOnboard={customerOnboard}
-              //   type={type}
-              // />
               getComponents(id)
             )}
           </div>

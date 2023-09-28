@@ -4,7 +4,7 @@ import "../../../App.css";
 import Modal from "../../Modal";
 import { validateMob, validatePan } from "../../../Utils/Validation";
 import { AppContext } from "../../../context/AppContext";
-import LoadingSpinner from "../../../Screens/Spinner/spinner";
+// import LoadingSpinner from "../../../Screens/Spinner/spinner";
 
 const NewLoanAccount = () => {
   const [open, setOpen] = useState(true);
@@ -20,6 +20,7 @@ const NewLoanAccount = () => {
     EmployerName: "",
     MonthlySalary: "",
   });
+  // eslint-disable-next-line no-unused-vars
   const [loading, setLoading] = useState(true);
   const [mobileNumber, setMobileNumber] = useState("");
   const [response, setResponse] = useState("");
@@ -43,7 +44,7 @@ const NewLoanAccount = () => {
       }),
       headers: {
         "Content-type": "application/json; charset=UTF-8",
-        "api-key": apiUrl?.APIKey,
+        "api-key":apiUrl?.api_key,
       },
     })
       .then((response) => response.json())
@@ -96,19 +97,23 @@ const NewLoanAccount = () => {
               >
                 {showscustomerID ? (
                   <div className="w-100  ">
-                    <div className="d-flex flex-column justify-content-around  align-items-start">
-                      <div className="w- fw-bold text-start text-info ">
-                        Customer ID:
+                    {response?.AppicationRefNo  !== "NaN" ? (
+                      <div className="d-flex flex-column justify-content-around  align-items-start">
+                        <div className="w- fw-bold text-start text-info ">
+                          Application No:
+                        </div>
+                        <div className="w- text-start  ">
+                          {response?.AppicationRefNo}
+                        </div>
                       </div>
-                      <div className="w- text-start text-white ">
-                        {response?.CustomerID}
-                      </div>
-                    </div>
+                    ) : (
+                      ""
+                    )}
                     <div className="d-flex flex-column mt-3 justify-content-between  align-items-start">
                       <div className="w- fw-bold  text-start text-info ">
                         ApplicationStatus :
                       </div>
-                      <div className="w- text-start text-white">
+                      <div className="w- text-start ">
                         {response?.ApplicationStatus}
                       </div>
                     </div>
@@ -166,6 +171,7 @@ const NewLoanAccount = () => {
                       }}
                       type="text"
                       placeholder=""
+                      maxLength={10}
                       onChange={(e) => {
                         setuserdetails({
                           ...userdetails,

@@ -43,7 +43,7 @@ const NewSavingsAccount = () => {
       }),
       headers: {
         "Content-type": "application/json; charset=UTF-8",
-        "api-key": apiUrl?.APIKey,
+        "api-key": apiUrl?.api_key,
       },
     })
       .then((response) => response.json())
@@ -100,7 +100,7 @@ const NewSavingsAccount = () => {
                       <div className="w- fw-bold text-start text-info ">
                         Customer ID:
                       </div>
-                      <div className="w- text-start text-white ">
+                      <div className="w- text-start  ">
                         {response?.CustomerID}
                       </div>
                     </div>
@@ -108,7 +108,7 @@ const NewSavingsAccount = () => {
                       <div className="w- fw-bold  text-start text-info ">
                         ApplicationStatus :
                       </div>
-                      <div className="w- text-start text-white">
+                      <div className="w- text-start ">
                         {response?.ApplicationStatus}
                       </div>
                     </div>
@@ -165,6 +165,7 @@ const NewSavingsAccount = () => {
                         color: "",
                       }}
                       type="text"
+                      maxLength={10}
                       placeholder=""
                       onChange={(e) => {
                         setuserdetails({

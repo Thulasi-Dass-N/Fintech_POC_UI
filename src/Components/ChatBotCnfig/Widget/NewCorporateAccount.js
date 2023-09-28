@@ -4,13 +4,13 @@ import "../../../App.css";
 import Modal from "../../Modal";
 import { validateMob, validatePan } from "../../../Utils/Validation";
 import { AppContext } from "../../../context/AppContext";
-import LoadingSpinner from "../../../Screens/Spinner/spinner";
+// import LoadingSpinner from "../../../Screens/Spinner/spinner";
 
 const NewCorporateAccount = () => {
   const [open, setOpen] = useState(true);
   const { apiUrl } = useContext(AppContext);
   const [userdetails, setuserdetails] = useState({
-    AccountsType: "SAVINGS",
+    AccountsType: "CORPORATE",
     CustName: "",
     CustAddress: "",
     PAN_NO: "",
@@ -20,6 +20,12 @@ const NewCorporateAccount = () => {
     EmployerName: "",
     MonthlySalary: "",
   });
+  const [error, setError] = useState({
+    panError: "",
+    AadharNoError: "",
+    MobileNoError: "",
+  });
+  // eslint-disable-next-line no-unused-vars
   const [loading, setLoading] = useState(true);
   const [mobileNumber, setMobileNumber] = useState("");
   const [response, setResponse] = useState("");
@@ -43,7 +49,7 @@ const NewCorporateAccount = () => {
       }),
       headers: {
         "Content-type": "application/json; charset=UTF-8",
-        "api-key": apiUrl?.APIKey,
+        "api-key":apiUrl?.api_key,
       },
     })
       .then((response) => response.json())
@@ -100,7 +106,7 @@ const NewCorporateAccount = () => {
                       <div className="w- fw-bold text-start text-info ">
                         Customer ID:
                       </div>
-                      <div className="w- text-start text-white ">
+                      <div className="w- text-start ">
                         {response?.CustomerID}
                       </div>
                     </div>
@@ -108,7 +114,7 @@ const NewCorporateAccount = () => {
                       <div className="w- fw-bold  text-start text-info ">
                         ApplicationStatus :
                       </div>
-                      <div className="w- text-start text-white">
+                      <div className="w- text-start ">
                         {response?.ApplicationStatus}
                       </div>
                     </div>
@@ -165,6 +171,7 @@ const NewCorporateAccount = () => {
                         color: "",
                       }}
                       type="text"
+                      maxLength={10}
                       placeholder=""
                       onChange={(e) => {
                         setuserdetails({
@@ -209,6 +216,10 @@ const NewCorporateAccount = () => {
                           setuserdetails({
                             ...userdetails,
                             MobileNo: "",
+                          });
+                          setError({
+                            ...error,
+                            MobileNoError: "enter valid mobile number",
                           });
                           console.log("erro");
                         }
@@ -313,7 +324,7 @@ const NewCorporateAccount = () => {
                           userdetails?.CustAddress !== "" &&
                           userdetails?.PAN_NO !== "" &&
                           userdetails?.AadharNo !== "" &&
-                          userdetails?.MobileNo !== "" 
+                          userdetails?.MobileNo !== ""
                           // userdetails?.Profession !== "" &&
                           // userdetails?.EmployerName !== "" &&
                           // userdetails?.MonthlySalary !== ""
