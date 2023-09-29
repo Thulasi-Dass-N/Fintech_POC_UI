@@ -82,25 +82,30 @@ const HomeScreen = () => {
       setFileTotal(sum);
     }
   }, [Transaction]);
+
   useEffect(() => {
-    var data1 = {};
+    var transactionDetails = {};
     var tempData = [];
 
     accountsFile?.forEach((element) => {
-      data1 = {
+      transactionDetails = {
         ToAccountNumber: element[0],
         Amount: Number(element[1]),
-        TransactionNotes: element[2],
+        TransactionNotes: element[2] || "",
       };
 
-      if (data1?.ToAccountNumber !== "") {
-        tempData.push(data1);
+      if (
+        transactionDetails?.ToAccountNumber !== "" &&
+        transactionDetails?.ToAccountNumber.length === 11 &&
+        transactionDetails?.Amount > 0
+      ) {
+        console.log(transactionDetails?.ToAccountNumber.length, "length");
+        tempData.push(transactionDetails);
       }
 
       setTransaction(tempData);
     });
   }, [accountsFile]);
-  console.log(transferDetails, "Account");
 
   const login = async () => {
     fetch(`http://${apiUrl.ip_port}/login`, {
@@ -137,7 +142,6 @@ const HomeScreen = () => {
       body: JSON.stringify({
         CustomerID: data?.CustomerID,
         AccountNumber: data?.AccountNumber,
-
         Transactions: Transaction,
       }),
       headers: {
@@ -148,6 +152,8 @@ const HomeScreen = () => {
     })
       .then((response) => response.json())
       .then((resp) => {
+        setFileName("");
+        console.log(resp, "hello");
         if (resp.StatusCode === "LOGIN SUCCESSFUL") {
           login();
         }
@@ -158,7 +164,7 @@ const HomeScreen = () => {
       })
       .catch((err) => {
         setError(err);
-        console.error(err);
+        console.log(err);
         setLoading(false);
       });
   };
@@ -593,12 +599,17 @@ const HomeScreen = () => {
                       className=" px-5  border border-0 bg-info text-center rounded-2 text-white  "
                       role="presentation"
                       onClick={() => {
-                        if (fileTotal <= Number(user?.AccountBalance)) {
-                          FundTransferFile();
+                        if (Transaction.length) {
+                          if (fileTotal <= Number(user?.AccountBalance)) {
+                            FundTransferFile();
+                          } else {
+                            setFileName("");
+                            setError("INSUFFICIENT FUNDS");
+                            setLoading(false);
+                          }
                         } else {
                           setFileName("");
-                          setError("INSUFFICIENT FUNDS");
-                          setLoading(false);
+                          setError("Invalid file");
                         }
                       }}
                     >
