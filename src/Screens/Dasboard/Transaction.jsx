@@ -116,7 +116,7 @@ const FundTransaction = ({
                   <option
                     disabled
                     selected
-                    label=" Select Benifitiary Account"
+                    label=" Select beneficiary Account"
                   />
 
                   {benifitiaryAccounts?.map((account) => {

@@ -106,7 +106,7 @@ const NewCustomer = () => {
           <>
             <div className="mb-3 in-left text-white  w-100 justify-content-around  align-items-center px-5 ">
               <div className=" d-flex  mb-3  text-white w-100 justify-content-between  align-items-center">
-                <div className="w-50 fs-5  text-end px-3 ">Account Type :</div>
+                <div className="w-50 fs-5  text-end px-2 ">Account Type :</div>
                 <div className=" w-50 form-group">
                   <select
                     className="form-select form-control pt-2 pb-2 mt-2  text-primary rounded-3"
@@ -157,7 +157,7 @@ const NewCustomer = () => {
                 </div>
               </div>
             </div>
-            <div className="w-100 in-left mt-5 py-5 px-3 d-flex justify-content-around ">
+            <div className="w-100 in-left mt-5 py-5 px-2 d-flex justify-content-around ">
               <button
                 type="button"
                 className="btn btn-success mx-3 w-25"
@@ -199,7 +199,7 @@ const NewCustomer = () => {
           <>
             <div className="mb-3 text-white w-100 justify-content-around  align-items-center px-5">
               <div className=" d-flex  mb-3 text-white w-100 justify-content-between  align-items-center">
-                <div className="w-50 fs-5  text-end px-3 ">Account Type :</div>
+                <div className="w-50 fs-5  text-end px-2 ">Account Type :</div>
                 <div className=" w-50 form-group">
                   <select
                     className="form-select form-control pt-2 pb-2 mt-2  text-primary rounded-3"
@@ -250,7 +250,7 @@ const NewCustomer = () => {
                 </div>
               </div>
               <div className="d-flex mt-3 text-white w-100 in-left justify-content-start align-items-center">
-                <div className="fs-5 w-50 text-end px-3">
+                <div className="fs-5 w-50 text-end px-2">
                   May we know your name :{" "}
                 </div>
                 <div className=" w-50 form-group">
@@ -316,7 +316,7 @@ const NewCustomer = () => {
           <>
             <div className="mb-3 text-white w-100 justify-content-around  align-items-center px-5">
               <div className=" d-flex  mb-3  text-white w-100 justify-content-between  align-items-center">
-                <div className="w-50 fs-5 text-end px-3 ">Account Type :</div>
+                <div className="w-50 fs-5 text-end px-2 ">Account Type :</div>
                 <div className=" w-50 form-group">
                   <select
                     className="form-select form-control pt-2 pb-2 mt-2  text-primary rounded-3"
@@ -367,7 +367,7 @@ const NewCustomer = () => {
                 </div>
               </div>
               <div className="d-flex mt-3 text-white w-100 justify-content-start align-items-center">
-                <div className="fs-5 w-50 text-end px-3">
+                <div className="fs-5 w-50 text-end px-2">
                   May we know your name :{" "}
                 </div>
                 <div className=" w-50 form-group">
@@ -387,7 +387,7 @@ const NewCustomer = () => {
               </div>
 
               <div className="d-flex in-left mt-3 text-white w-100 justify-content-around align-items-center">
-                <div className="fs-5 w-50 text-end px-3">
+                <div className="fs-5 w-50 text-end px-2">
                   Where should we contact you:
                 </div>
                 <div className="  w-50 mt-3 form-group">
@@ -453,7 +453,7 @@ const NewCustomer = () => {
           <>
             <div className="mb-3 text-white w-100 justify-content-around  align-items-center px-5">
               <div className=" d-flex  mb-3 text-white w-100 justify-content-between  align-items-center">
-                <div className="w-50 fs-5 text-end px-3 ">Account Type :</div>
+                <div className="w-50 fs-5 text-end px-2 ">Account Type :</div>
                 <div className=" w-50 form-group">
                   <select
                     className="form-select form-control pt-2 pb-2 mt-2  text-primary rounded-3"
@@ -504,7 +504,7 @@ const NewCustomer = () => {
                 </div>
               </div>
               <div className="d-flex  mt-3 text-white w-100 justify-content-start align-items-center">
-                <div className="fs-5 w-50 text-end px-3">
+                <div className="fs-5 w-50 text-end px-2">
                   May we know your name :{" "}
                 </div>
                 <div className=" w-50 form-group">
@@ -524,7 +524,7 @@ const NewCustomer = () => {
               </div>
 
               <div className="d-flex mt-3 text-white w-100 justify-content-around align-items-center">
-                <div className="fs-5 w-50 text-end px-3">
+                <div className="fs-5 w-50 text-end px-2">
                   Where should we contact you:
                 </div>
                 <div className="  w-50 mt-3 form-group">
@@ -543,7 +543,7 @@ const NewCustomer = () => {
               </div>
 
               <div className="d-flex mt-3 in-left text-white w-100 justify-content-around align-items-center ">
-                <div className="fs-5  w-50 text-end px-3">
+                <div className="fs-5  w-50 text-end px-2">
                   Can you please help us with your PAN number :{" "}
                 </div>
                 <div className="  form-group  w-50 ">
@@ -614,7 +614,7 @@ const NewCustomer = () => {
           <>
             <div className="mb-3 text-white w-100 justify-content-around  align-items-center px-5">
               <div className=" d-flex   mb-3 text-white w-100 justify-content-between  align-items-center">
-                <div className="w-50 fs-5 text-end px-3 ">Account Type :</div>
+                <div className="w-50 fs-5 text-end px-2 ">Account Type :</div>
                 <div className=" w-50 form-group">
                   <select
                     className="form-select form-control pt-2 pb-2 mt-2  text-primary rounded-3"
@@ -665,7 +665,7 @@ const NewCustomer = () => {
                 </div>
               </div>
               <div className="d-flex mt-3 text-white w-100 justify-content-start align-items-center">
-                <div className="fs-5 w-50 text-end px-3">
+                <div className="fs-5 w-50 text-end px-2">
                   May we know your name :{" "}
                 </div>
                 <div className=" w-50 form-group">
@@ -685,7 +685,7 @@ const NewCustomer = () => {
               </div>
 
               <div className="d-flex mt-3 text-white w-100 justify-content-around align-items-center">
-                <div className="fs-5 w-50 text-end px-3">
+                <div className="fs-5 w-50 text-end px-2">
                   Where should we contact you:
                 </div>
                 <div className="  w-50 mt-3 form-group">
@@ -704,7 +704,7 @@ const NewCustomer = () => {
               </div>
 
               <div className="d-flex  mt-3 text-white w-100 justify-content-around align-items-center">
-                <div className="fs-5  w-50 text-end px-3">
+                <div className="fs-5  w-50 text-end px-2">
                   Can you please help us with your PAN number :{" "}
                 </div>
                 <div className="  form-group  w-50 ">
@@ -726,15 +726,13 @@ const NewCustomer = () => {
               </div>
 
               <div className="d-flex mt-3 in-left text-white w-100 justify-content-around align-items-center">
-                <div className="fs-5  w-50 text-end px-3">
-                  Can you please help us with your Aadhar number :
+                <div className="fs-5  w-50 text-end px-2">
+                  Can you please help us with your Aadhaar number :
                 </div>
                 <div className=" w-50  form-group">
                   <input
                     className=" w-100 px-2 py-1 rounded-2 user-input border-0"
-                    placeholder="Aadhar number"
-                    // onKeyPress="if(this.value.length==5) return false;"
-                    onKeyDown={""}
+                    placeholder="Aadhaar number"
                     maxLength={12}
                     minLength={12}
                     type="number"
@@ -801,7 +799,7 @@ const NewCustomer = () => {
           <>
             <div className="mb-3 text-white w-100 justify-content-around  align-items-center px-5">
               <div className=" d-flex  mb-3   text-white w-100 justify-content-between  align-items-center">
-                <div className="w-50 fs-5 text-end px-3 ">Account Type :</div>
+                <div className="w-50 fs-5 text-end px-2 ">Account Type :</div>
                 <div className=" w-50 form-group">
                   <select
                     className="form-select form-control pt-2 pb-2 mt-2  text-primary rounded-3"
@@ -852,7 +850,7 @@ const NewCustomer = () => {
                 </div>
               </div>
               <div className="d-flex text-white w-100 mt-3 justify-content-start align-items-center">
-                <div className="fs-5 w-50 text-end px-3">
+                <div className="fs-5 w-50 text-end px-2">
                   May we know your name :{" "}
                 </div>
                 <div className=" w-50 form-group">
@@ -872,7 +870,7 @@ const NewCustomer = () => {
               </div>
 
               <div className="d-flex mt-3 text-white   w-100 justify-content-around align-items-center">
-                <div className="fs-5 w-50 text-end px-3">
+                <div className="fs-5 w-50 text-end px-2">
                   Where should we contact you:
                 </div>
                 <div className="  w-50 mt-3 form-group">
@@ -891,7 +889,7 @@ const NewCustomer = () => {
               </div>
 
               <div className="d-flex mt-3 text-white  w-100 justify-content-around align-items-center">
-                <div className="fs-5  w-50 text-end px-3">
+                <div className="fs-5  w-50 text-end px-2">
                   Can you please help us with your PAN number :{" "}
                 </div>
                 <div className="  form-group  w-50 ">
@@ -913,13 +911,13 @@ const NewCustomer = () => {
               </div>
 
               <div className="d-flex mt-3 text-white  w-100 justify-content-around align-items-center">
-                <div className="fs-5  w-50 text-end px-3">
-                  Can you please help us with your Aadhar number :
+                <div className="fs-5  w-50 text-end px-2">
+                  Can you please help us with your Aadhaar number :
                 </div>
                 <div className=" w-50  form-group">
                   <input
                     className=" w-100 px-2 py-1 rounded-2 user-input border-0"
-                    placeholder="Aadhar number"
+                    placeholder="Aadhaar number"
                     maxLength={12}
                     minLength={12}
                     type="number"
@@ -934,7 +932,7 @@ const NewCustomer = () => {
               </div>
 
               <div className="d-flex mt-3 in-left text-white w-100 justify-content-around align-items-center">
-                <div className="fs-5  w-50 text-end px-3">
+                <div className="fs-5  w-50 text-end px-2">
                   Where should we call you:
                 </div>
                 <div className="  w-50 form-group">
@@ -1036,7 +1034,7 @@ const NewCustomer = () => {
           <>
             <div className="mb-3 text-white  w-100 justify-content-around  align-items-center px-5">
               <div className=" d-flex   mb-3 text-white w-100 justify-content-between  align-items-center">
-                <div className="w-50 fs-5 text-end px-3 ">Account Type :</div>
+                <div className="w-50 fs-5 text-end px-2 ">Account Type :</div>
                 <div className=" w-50 form-group">
                   <select
                     className="form-select form-control pt-2 pb-2 mt-2  text-primary rounded-3"
@@ -1087,7 +1085,7 @@ const NewCustomer = () => {
                 </div>
               </div>
               <div className="d-flex mt-3 text-white w-100 justify-content-start align-items-center">
-                <div className="fs-5 w-50 text-end px-3">
+                <div className="fs-5 w-50 text-end px-2">
                   May we know your name :{" "}
                 </div>
                 <div className=" w-50 form-group">
@@ -1107,7 +1105,7 @@ const NewCustomer = () => {
               </div>
 
               <div className="d-flex mt-3  text-white w-100 justify-content-around align-items-center">
-                <div className="fs-5 w-50 text-end px-3">
+                <div className="fs-5 w-50 text-end px-2">
                   Where should we contact you:
                 </div>
                 <div className="  w-50 mt-3 form-group">
@@ -1126,7 +1124,7 @@ const NewCustomer = () => {
               </div>
 
               <div className="d-flex mt-3 text-white w-100 justify-content-around align-items-center">
-                <div className="fs-5  w-50 text-end px-3">
+                <div className="fs-5  w-50 text-end px-2">
                   Can you please help us with your PAN number :{" "}
                 </div>
                 <div className="   form-group  w-50 ">
@@ -1148,13 +1146,13 @@ const NewCustomer = () => {
               </div>
 
               <div className="d-flex mt-3  text-white w-100 justify-content-around align-items-center">
-                <div className="fs-5  w-50 text-end px-3">
-                  Can you please help us with your Aadhar number :
+                <div className="fs-5  w-50 text-end px-2">
+                  Can you please help us with your Aadhaar number :
                 </div>
                 <div className=" w-50  form-group">
                   <input
                     className=" w-100 px-2 py-1 rounded-2 user-input border-0"
-                    placeholder="Aadhar number"
+                    placeholder="Aadhaar number"
                     maxLength={12}
                     minLength={12}
                     type="number"
@@ -1169,7 +1167,7 @@ const NewCustomer = () => {
               </div>
 
               <div className="d-flex mt-3 text-white w-100 justify-content-around align-items-center">
-                <div className="fs-5  w-50 text-end px-3">
+                <div className="fs-5  w-50 text-end px-2">
                   Where should we call you:
                 </div>
                 <div className="  w-50 form-group">
@@ -1199,7 +1197,7 @@ const NewCustomer = () => {
               </div>
 
               <div className="d-flex mt-3 in-left text-white w-100 justify-content-around align-items-center">
-                <div className="fs-5  w-50 text-end px-3">
+                <div className="fs-5  w-50 text-end px-2">
                   Type of Income :{" "}
                 </div>
                 <div className="  form-group w-50">
@@ -1226,10 +1224,10 @@ const NewCustomer = () => {
                       BUSINESS
                     </option>
                     <option
-                      selected={customerDetails?.Profession === "SALARIZED"}
-                      value="SALARIZED"
+                      selected={customerDetails?.Profession === "SALARIED"}
+                      value="SALARIED"
                     >
-                      SALARIZED
+                      SALARIED
                     </option>
                   </select>
                 </div>
@@ -1294,7 +1292,7 @@ const NewCustomer = () => {
           <>
             <div className="mb-3 text-white w-100 justify-content-around  align-items-center px-5">
               <div className=" d-flex  mb-3 text-white w-100 justify-content-between  align-items-center">
-                <div className="w-50 fs-5 text-end px-3 ">Account Type :</div>
+                <div className="w-50 fs-5 text-end px-2 ">Account Type :</div>
                 <div className=" w-50 form-group">
                   <select
                     className="form-select form-control pt-2 pb-2 mt-2  text-primary rounded-3"
@@ -1345,7 +1343,7 @@ const NewCustomer = () => {
                 </div>
               </div>
               <div className="d-flex mt-3 text-white w-100 justify-content-start align-items-center">
-                <div className="fs-5 w-50 text-end px-3">
+                <div className="fs-5 w-50 text-end px-2">
                   May we know your name :{" "}
                 </div>
                 <div className=" w-50 form-group">
@@ -1365,7 +1363,7 @@ const NewCustomer = () => {
               </div>
 
               <div className="d-flex  mt-3 text-white w-100 justify-content-around align-items-center">
-                <div className="fs-5 w-50 text-end px-3">
+                <div className="fs-5 w-50 text-end px-2">
                   Where should we contact you:
                 </div>
                 <div className="  w-50 mt-3 form-group">
@@ -1384,7 +1382,7 @@ const NewCustomer = () => {
               </div>
 
               <div className="d-flex mt-3 text-white w-100 justify-content-around align-items-center">
-                <div className="fs-5  w-50 text-end px-3">
+                <div className="fs-5  w-50 text-end px-2">
                   Can you please help us with your PAN number :{" "}
                 </div>
                 <div className="  form-group  w-50 ">
@@ -1406,13 +1404,13 @@ const NewCustomer = () => {
               </div>
 
               <div className="d-flex mt-3 text-white w-100 justify-content-around align-items-center">
-                <div className="fs-5  w-50 text-end px-3">
-                  Can you please help us with your Aadhar number :
+                <div className="fs-5  w-50 text-end px-2">
+                  Can you please help us with your Aadhaar number :
                 </div>
                 <div className=" w-50  form-group">
                   <input
                     className=" w-100 px-2 py-1 rounded-2 user-input border-0"
-                    placeholder="Aadhar number"
+                    placeholder="Aadhaar number"
                     maxLength={12}
                     minLength={12}
                     type="number"
@@ -1427,7 +1425,7 @@ const NewCustomer = () => {
               </div>
 
               <div className="d-flex mt-3 text-white w-100 justify-content-around align-items-center">
-                <div className="fs-5  w-50 text-end px-3">
+                <div className="fs-5  w-50 text-end px-2">
                   Where should we call you:
                 </div>
                 <div className="  w-50 form-group">
@@ -1457,7 +1455,7 @@ const NewCustomer = () => {
               </div>
 
               <div className="d-flex mt-3  text-white w-100 justify-content-around align-items-center">
-                <div className="fs-5  w-50 text-end px-3">
+                <div className="fs-5  w-50 text-end px-2">
                   Type of Income :{" "}
                 </div>
                 <div className="  form-group w-50">
@@ -1484,17 +1482,17 @@ const NewCustomer = () => {
                       BUSINESS
                     </option>
                     <option
-                      selected={customerDetails?.Profession === "SALARIZED"}
-                      value="SALARIZED"
+                      selected={customerDetails?.Profession === "SALARIED"}
+                      value="SALARIED"
                     >
-                      SALARIZED
+                      SALARIED
                     </option>
                   </select>
                 </div>
               </div>
 
               <div className="d-flex in-left mt-3 text-white w-100 justify-content-around align-items-center">
-                <div className="fs-5  w-50 text-end px-3">
+                <div className="fs-5  w-50 text-end px-2">
                   {customerDetails?.Profession === "BUSINESS"
                     ? " Describe your business"
                     : "Employer name :"}
@@ -1575,7 +1573,7 @@ const NewCustomer = () => {
           <>
             <div className="mb-3 text-white w-100 justify-content-around  align-items-center px-5">
               <div className=" d-flex   mb-3 text-white w-100 justify-content-between  align-items-center">
-                <div className="w-50 fs-5 text-end px-3 ">Account Type :</div>
+                <div className="w-50 fs-5 text-end px-2 ">Account Type :</div>
                 <div className=" w-50 form-group">
                   <select
                     className="form-select form-control pt-2 pb-2 mt-2  text-primary rounded-3"
@@ -1626,7 +1624,7 @@ const NewCustomer = () => {
                 </div>
               </div>
               <div className="d-flex mt-3 text-white w-100 justify-content-start align-items-center">
-                <div className="fs-5 w-50 text-end px-3">
+                <div className="fs-5 w-50 text-end px-2">
                   May we know your name :{" "}
                 </div>
                 <div className=" w-50 form-group">
@@ -1646,7 +1644,7 @@ const NewCustomer = () => {
               </div>
 
               <div className="d-flex mt-3 text-white w-100 justify-content-around align-items-center">
-                <div className="fs-5 w-50 text-end px-3">
+                <div className="fs-5 w-50 text-end px-2">
                   Where should we contact you:
                 </div>
                 <div className="  w-50  form-group">
@@ -1665,7 +1663,7 @@ const NewCustomer = () => {
               </div>
 
               <div className="d-flex mt-3 text-white w-100 justify-content-around align-items-center">
-                <div className="fs-5  w-50 text-end px-3 ">
+                <div className="fs-5  w-50 text-end px-2 ">
                   Can you please help us with your PAN number :{" "}
                 </div>
                 <div className="  form-group  w-50 ">
@@ -1687,13 +1685,13 @@ const NewCustomer = () => {
               </div>
 
               <div className="d-flex mt-3  text-white w-100 justify-content-around align-items-center">
-                <div className="fs-5  w-50 text-end px-3">
-                  Can you please help us with your Aadhar number :
+                <div className="fs-5  w-50 text-end px-2">
+                  Can you please help us with your Aadhaar number :
                 </div>
                 <div className=" w-50  form-group">
                   <input
                     className=" w-100 px-2 py-1  rounded-2 user-input border-0"
-                    placeholder="Aadhar number"
+                    placeholder="Aadhaar number"
                     type="number"
                     maxLength={12}
                     minLength={12}
@@ -1708,7 +1706,7 @@ const NewCustomer = () => {
               </div>
 
               <div className="d-flex mt-3 text-white w-100 justify-content-around align-items-center">
-                <div className="fs-5  w-50 text-end px-3">
+                <div className="fs-5  w-50 text-end px-2">
                   Where should we call you:
                 </div>
                 <div className="  w-50 form-group">
@@ -1738,7 +1736,7 @@ const NewCustomer = () => {
               </div>
 
               <div className="d-flex mt-3  text-white w-100  justify-content-around align-items-center">
-                <div className="fs-5  w-50 text-end px-3">
+                <div className="fs-5  w-50 text-end px-2">
                   Type of Income :{" "}
                 </div>
                 <div className="  form-group w-50">
@@ -1765,17 +1763,17 @@ const NewCustomer = () => {
                       BUSINESS
                     </option>
                     <option
-                      selected={customerDetails?.Profession === "SALARIZED"}
-                      value="SALARIZED"
+                      selected={customerDetails?.Profession === "SALARIED"}
+                      value="SALARIED"
                     >
-                      SALARIZED
+                      SALARIED
                     </option>
                   </select>
                 </div>
               </div>
 
               <div className="d-flex mt-3 text-white w-100 justify-content-around align-items-center">
-                <div className="fs-5  w-50 text-end px-3">
+                <div className="fs-5  w-50 text-end px-2">
                   {customerDetails?.Profession === "BUSINESS"
                     ? " Describe your business"
                     : "Employer name"}{" "}
@@ -1796,7 +1794,7 @@ const NewCustomer = () => {
               </div>
 
               <div className="d-flex in-left mt-3 text-white w-100 justify-content-around align-items-center">
-                <div className="fs-5   w-50 text-end px-3">
+                <div className="fs-5   w-50 text-end px-2">
                   Monthly Income :{" "}
                 </div>
                 <div className=" w-50 form-group">
@@ -1939,7 +1937,7 @@ const NewCustomer = () => {
           <div className="d-flex mt-4  w-100 justify-content-evenly ">
             <div
               role="presentation"
-              className="px-3 border border-1 w-25 text-center bg-success text-white rounded-2"
+              className="px-2 border border-1 w-25 text-center bg-success text-white rounded-2"
               onClick={() => {
                 setFinApiUrl({
                   ...finApiUrl,
@@ -1955,7 +1953,7 @@ const NewCustomer = () => {
             </div>
             <div
               role="presentation"
-              className="px-3 border border-1 w-25 text-center bg-secondary bg-opacity-25 text-dark rounded-2"
+              className="px-2 border border-1 w-25 text-center bg-secondary bg-opacity-25 text-dark rounded-2"
               onClick={() => {
                 setSucces(false);
               }}

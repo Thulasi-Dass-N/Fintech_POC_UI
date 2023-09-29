@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
+import Papa from "papaparse";
 import "./HomeScreen.css";
 import BankImg from "../../assets/jklogo.png";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -21,6 +22,10 @@ const HomeScreen = () => {
     APIKey: "",
   });
   const [data, setData] = useState([]);
+  const [accountsFile, setAccountsFile] = useState([]);
+  const [fileTotal, setFileTotal] = useState(0);
+  const [fileName, setFileName] = useState("");
+  const [Transaction, setTransaction] = useState([]);
   const [transfer, setTransfer] = useState(false);
   const [addTransfer, setAddTransfer] = useState(false);
   const [error, setError] = useState("");
@@ -48,7 +53,7 @@ const HomeScreen = () => {
     fetch(`http://${apiUrl.ip_port}/getBenifitiaryAccounts`, {
       method: "GET",
       headers: {
-        "Content-type": "application/json; charset=UTF-8",
+        "Content-type": "application/json",
         "api-key": apiUrl?.api_key,
         "Access-Control-Allow-Origin": "*",
       },
@@ -56,8 +61,6 @@ const HomeScreen = () => {
       .then((response) => response.json())
       .then((resp) => {
         const value = resp?.Accounts;
-
-        console.log(resp, "benfit");
 
         value.splice(
           value.findIndex((a) => a.AccountNumber === user.AccountNumber),
@@ -71,6 +74,33 @@ const HomeScreen = () => {
         }
       });
   }, [user.AccountNumber, transferDetails.ToAccountNumber, apiUrl]);
+
+  useEffect(() => {
+    let sum = 0;
+    if (Transaction) {
+      Transaction.map((item) => (sum = sum + item?.Amount));
+      setFileTotal(sum);
+    }
+  }, [Transaction]);
+  useEffect(() => {
+    var data1 = {};
+    var tempData = [];
+
+    accountsFile?.forEach((element) => {
+      data1 = {
+        ToAccountNumber: element[0],
+        Amount: Number(element[1]),
+        TransactionNotes: element[2],
+      };
+
+      if (data1?.ToAccountNumber !== "") {
+        tempData.push(data1);
+      }
+
+      setTransaction(tempData);
+    });
+  }, [accountsFile]);
+  console.log(transferDetails, "Account");
 
   const login = async () => {
     fetch(`http://${apiUrl.ip_port}/login`, {
@@ -96,6 +126,39 @@ const HomeScreen = () => {
         setLoading(false);
       })
       .catch(() => {
+        setLoading(false);
+      });
+  };
+
+  const FundTransferFile = () => {
+    setLoading(true);
+    fetch(`http://${apiUrl.ip_port}/transferfunds`, {
+      method: "POST",
+      body: JSON.stringify({
+        CustomerID: data?.CustomerID,
+        AccountNumber: data?.AccountNumber,
+
+        Transactions: Transaction,
+      }),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+        "api-key": apiUrl?.api_key,
+        "Access-Control-Allow-Origin": "*",
+      },
+    })
+      .then((response) => response.json())
+      .then((resp) => {
+        if (resp.StatusCode === "LOGIN SUCCESSFUL") {
+          login();
+        }
+        if (resp.StatusCode === "LOGIN FAILED - CUSTOMER ID DOES NOT EXIST") {
+          setError("FAILED");
+          setLoading(true);
+        }
+      })
+      .catch((err) => {
+        setError(err);
+        console.error(err);
         setLoading(false);
       });
   };
@@ -155,9 +218,7 @@ const HomeScreen = () => {
     setSucces(!success);
   };
 
-  const closeModal1 = () => {
-    // setSucces(!success);
-  };
+  const closeModal1 = () => {};
 
   return (
     <div className="d-flex flex-column">
@@ -194,7 +255,6 @@ const HomeScreen = () => {
                   ipAddress: e?.target?.value,
                 });
               }}
-              // value={port?.ipAddress}
             />
           </div>
           <div
@@ -522,17 +582,57 @@ const HomeScreen = () => {
                 </div>
                 {error ? <div className="text-danger">{error}</div> : ""}
                 <div className="d-flex">
+                  {fileName ? (
+                    <button
+                      style={{
+                        // width: "75%",
+                        marginRight: "20px",
+                      }}
+                      type="button"
+                      // disabled="True"
+                      className=" px-5  border border-0 bg-info text-center rounded-2 text-white  "
+                      role="presentation"
+                      onClick={() => {
+                        if (fileTotal <= Number(user?.AccountBalance)) {
+                          FundTransferFile();
+                        } else {
+                          setFileName("");
+                          setError("INSUFFICIENT FUNDS");
+                          setLoading(false);
+                        }
+                      }}
+                    >
+                      Upload {fileName}
+                    </button>
+                  ) : (
+                    <input
+                      className="  "
+                      type="file"
+                      // disabled
+                      accept=".csv"
+                      onChange={(e) => {
+                        setError("");
+                        const files = e?.target?.files;
+                        setFileName(files[0].name);
+                        if (files) {
+                          Papa.parse(files[0], {
+                            complete: function (results) {
+                              setAccountsFile(results?.data);
+                            },
+                          });
+                        }
+                      }}
+                    />
+                  )}
                   <button
                     style={{
                       // width: "75%",
                       marginRight: "20px",
                     }}
                     type="button"
-                    // disabled="True"
                     className=" px-5  border border-0 bg-primary text-center rounded-2 text-white  "
                     role="presentation"
                     onClick={() => {
-                      console.log(user);
                       if (
                         addTransfer &&
                         transferDetails.ToAccountNumber !== "" &&
@@ -589,20 +689,16 @@ const HomeScreen = () => {
                       setTransferDetails({});
                       setTransfer(false);
                       setAccount("");
+                      setFileName("");
+                      setAccountsFile([]);
+                      setTransaction("");
                     }}
                   >
                     Cancel
                   </div>
                 </div>
               </div>
-              <div
-                className="d-flex "
-                style={
-                  {
-                    // width:'100%'
-                  }
-                }
-              >
+              <div className="d-flex ">
                 <FundTransaction
                   setError={setError}
                   setTransfer={setTransfer}

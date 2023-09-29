@@ -179,7 +179,7 @@ const NewCreditAccount = () => {
                       }}
                       value={userdetails.PAN_NO}
                     />
-                    <div> AadharNo</div>
+                    <div>Aadhaar No</div>
                     <input
                       className="user-input rounded-2 px-2 border border-1"
                       style={{
@@ -246,10 +246,10 @@ const NewCreditAccount = () => {
                             BUSINESS
                           </option>
                           <option
-                            selected={userdetails?.Profession === "SALARIZED"}
-                            value="SALARIZED"
+                            selected={userdetails?.Profession === "SALARIED"}
+                            value="SALARIED"
                           >
-                            SALARIZED
+                            SALARIED
                           </option>
                         </select>
                       </div>

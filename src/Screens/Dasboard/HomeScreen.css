@@ -102,3 +102,27 @@ input::-webkit-inner-spin-button {
     max-width: 19rem;
   }
 }
+
+input[type="file"]::file-selector-button {
+  border: 2px solid #0bb5e42f;
+  padding: 0.2em 0.4em;
+  border-radius: 0.2em;
+  background-color: #0d6efd;
+  transition: 1s;
+  color: #fff;
+}
+
+/* input[type="file"]::-ms-browse:hover {
+  background-color: #81ecec;
+  border: 2px solid #00cec9;
+} */
+
+/* input[type="file"]::-webkit-file-upload-button:hover {
+  background-color: #81ecec;
+  border: 2px solid #00cec9;
+} */
+
+/* input[type="file"]::file-selector-button:hover {
+  background-color: #81ecec;
+  border: 2px solid #00cec9;
+} */
