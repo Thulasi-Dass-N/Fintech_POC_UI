@@ -60,20 +60,32 @@ const HomeScreen = () => {
     })
       .then((response) => response.json())
       .then((resp) => {
+        var tempData = [];
         const value = resp?.Accounts;
+        value?.forEach((element) => {
+          // transactionDetails = {
+          //   ToAccountNumber: element[0],
+          //   Amount: Number(element[1]),
+          //   TransactionNotes: element[2] || "",
+          // };
 
-        value.splice(
-          value.findIndex((a) => a.AccountNumber === user.AccountNumber),
-          1
-        );
+          if (element?.AccountNumber !== user.AccountNumber) {
+            tempData.push(element);
+          }
 
-        SetBenifitiaryAccounts(value);
-        if (resp.StatusCode === "LOGIN SUCCESSFUL") {
-        }
-        if (resp.StatusCode === "LOGIN FAILED - CUSTOMER ID DOES NOT EXIST") {
-        }
+          SetBenifitiaryAccounts(tempData);
+        });
+
+        // value.splice(
+        //   value.findIndex((a) => a.AccountNumber === user.AccountNumber),
+        //   1
+        // );
+
+        // SetBenifitiaryAccounts(value);
       });
-  }, [user.AccountNumber, transferDetails.ToAccountNumber, apiUrl]);
+  }, [user.AccountNumber, apiUrl]);
+
+  console.log(benifitiaryAccounts, "ben");
 
   useEffect(() => {
     let sum = 0;
@@ -99,7 +111,7 @@ const HomeScreen = () => {
         transactionDetails?.ToAccountNumber.length === 11 &&
         transactionDetails?.Amount > 0
       ) {
-        console.log(transactionDetails?.ToAccountNumber.length, "length");
+        // console.log(transactionDetails?.ToAccountNumber.length, "length");
         tempData.push(transactionDetails);
       }
 
@@ -628,6 +640,7 @@ const HomeScreen = () => {
                         if (files) {
                           Papa.parse(files[0], {
                             complete: function (results) {
+                              console.log(results, "results");
                               setAccountsFile(results?.data);
                             },
                           });
