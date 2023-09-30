@@ -212,7 +212,7 @@ const NewSavingsAccount = () => {
                             ...userdetails,
                             MobileNo: "",
                           });
-                          console.log("erro");
+                         
                         }
                       }}
                       value={mobileNumber}
@@ -324,7 +324,7 @@ const NewSavingsAccount = () => {
 
                           customerOnboard();
                         } else {
-                          console.log("error");
+                         
                         }
                       }}
                     >

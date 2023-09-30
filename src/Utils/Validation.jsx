@@ -5,7 +5,6 @@ export const validatePan = (data) => data.replace(/[^a-z A-Z0-9]/g, "");
 export const blockInvalidChar = (e) =>
   ["e", "E", "+", "-"].includes(e.key) && e.preventDefault();
 export const validateMob = (mobile) => {
-  console.log("validate", mobile);
   const mobileRegEx = /^[6-9][0-9]{9}$/;
   var ValidData = mobileRegEx.test(mobile);
   if (!ValidData) {

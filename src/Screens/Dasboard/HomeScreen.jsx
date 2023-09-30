@@ -63,12 +63,6 @@ const HomeScreen = () => {
         var tempData = [];
         const value = resp?.Accounts;
         value?.forEach((element) => {
-          // transactionDetails = {
-          //   ToAccountNumber: element[0],
-          //   Amount: Number(element[1]),
-          //   TransactionNotes: element[2] || "",
-          // };
-
           if (element?.AccountNumber !== user.AccountNumber) {
             tempData.push(element);
           }
@@ -80,12 +74,8 @@ const HomeScreen = () => {
         //   value.findIndex((a) => a.AccountNumber === user.AccountNumber),
         //   1
         // );
-
-        // SetBenifitiaryAccounts(value);
       });
   }, [user.AccountNumber, apiUrl]);
-
-  console.log(benifitiaryAccounts, "ben");
 
   useEffect(() => {
     let sum = 0;
@@ -111,7 +101,6 @@ const HomeScreen = () => {
         transactionDetails?.ToAccountNumber.length === 11 &&
         transactionDetails?.Amount > 0
       ) {
-        // console.log(transactionDetails?.ToAccountNumber.length, "length");
         tempData.push(transactionDetails);
       }
 
@@ -165,7 +154,7 @@ const HomeScreen = () => {
       .then((response) => response.json())
       .then((resp) => {
         setFileName("");
-        console.log(resp, "hello");
+
         if (resp.StatusCode === "LOGIN SUCCESSFUL") {
           login();
         }
@@ -176,7 +165,7 @@ const HomeScreen = () => {
       })
       .catch((err) => {
         setError(err);
-        console.log(err);
+        // console.log(err);
         setLoading(false);
       });
   };
@@ -640,7 +629,6 @@ const HomeScreen = () => {
                         if (files) {
                           Papa.parse(files[0], {
                             complete: function (results) {
-                              console.log(results, "results");
                               setAccountsFile(results?.data);
                             },
                           });

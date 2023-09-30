@@ -954,7 +954,7 @@ const NewCustomer = () => {
                           ...customerDetails,
                           MobileNo: "",
                         });
-                        console.log("erro");
+                       
                       }
                     }}
                   />
@@ -1003,7 +1003,7 @@ const NewCustomer = () => {
                       setLoading(true);
                       customerOnboard();
                     } else {
-                      console.log("error");
+                     
                     }
                   } else if (
                     customerDetails?.AccountsType !== "" &&
@@ -1018,7 +1018,7 @@ const NewCustomer = () => {
                       return prev;
                     });
                   } else {
-                    console.log("error");
+                   
                   }
                 }}
               >
@@ -1189,7 +1189,7 @@ const NewCustomer = () => {
                           ...customerDetails,
                           MobileNo: "",
                         });
-                        console.log("erro");
+                       
                       }
                     }}
                   />
@@ -1447,7 +1447,7 @@ const NewCustomer = () => {
                           ...customerDetails,
                           MobileNo: "",
                         });
-                        console.log("erro");
+                       
                       }
                     }}
                   />
@@ -1728,7 +1728,7 @@ const NewCustomer = () => {
                           ...customerDetails,
                           MobileNo: "",
                         });
-                        console.log("erro");
+                       
                       }
                     }}
                   />
@@ -1861,7 +1861,7 @@ const NewCustomer = () => {
 
                     customerOnboard();
                   } else {
-                    console.log("error");
+                   
                   }
                 }}
               >

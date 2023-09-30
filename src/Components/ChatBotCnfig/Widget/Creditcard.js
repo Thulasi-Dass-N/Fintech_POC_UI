@@ -215,7 +215,7 @@ const NewCreditAccount = () => {
                             ...userdetails,
                             MobileNo: "",
                           });
-                          console.log("erro");
+                         
                         }
                       }}
                       value={mobileNumber}
@@ -327,7 +327,7 @@ const NewCreditAccount = () => {
 
                           customerOnboard();
                         } else {
-                          console.log("error");
+                         
                         }
                       }}
                     >

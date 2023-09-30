@@ -217,7 +217,7 @@ const NewLoanAccount = () => {
                             ...userdetails,
                             MobileNo: "",
                           });
-                          console.log("erro");
+                         
                         }
                       }}
                       value={mobileNumber}
@@ -329,7 +329,7 @@ const NewLoanAccount = () => {
 
                           customerOnboard();
                         } else {
-                          console.log("error");
+                         
                         }
                       }}
                     >

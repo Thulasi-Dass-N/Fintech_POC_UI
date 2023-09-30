@@ -19,7 +19,7 @@ const CorporateBalance = () => {
   const [loading, setLoading] = useState(true);
 
   const login = async (userDetails) => {
-    console.log(userDetails, "hello");
+  
     setLoading(true);
     fetch(`http://${apiUrl.ip_port}/login`, {
       method: "POST",
@@ -35,7 +35,7 @@ const CorporateBalance = () => {
     })
       .then((response) => response.json())
       .then((resp) => {
-        console.log(resp, "chat bot");
+       
 
         if (resp.StatusCode === "LOGIN SUCCESSFUL") {
           setBalanceView(true);
@@ -50,7 +50,7 @@ const CorporateBalance = () => {
         // setOpen(!open);
       })
       .catch((e) => {
-        console.log(e, "error");
+        // console.log(e, "error");
       });
   };
 

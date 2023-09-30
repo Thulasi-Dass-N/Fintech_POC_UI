@@ -14,7 +14,6 @@ const Chatbox = ({ handleClose }) => {
   
 
   const saveMessages = (messages, HTMLString) => {
-    console.log("messages",messages);
     localStorage.setItem('chat_messages', JSON.stringify(messages));
   };
 

@@ -21,7 +21,7 @@ const SavingsBalance = () => {
   const [loading, setLoading] = useState(false);
 
   const login = async (userDetails) => {
-    console.log(userDetails, "hello");
+
     setLoading(true);
     fetch(`http://${apiUrl.ip_port}/login`, {
       method: "POST",
@@ -37,7 +37,6 @@ const SavingsBalance = () => {
     })
       .then((response) => response.json())
       .then((resp) => {
-        console.log(resp, "chat bot");
 
         if (resp.StatusCode === "LOGIN SUCCESSFUL") {
           setBalanceView(true);
@@ -53,7 +52,6 @@ const SavingsBalance = () => {
         // setOpen(!open);
       })
       .catch((e) => {
-        console.log(e, "error");
         setLoading(false);
       });
   };

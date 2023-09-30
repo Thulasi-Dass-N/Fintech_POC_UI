@@ -222,85 +222,12 @@ const NewCorporateAccount = () => {
                             ...error,
                             MobileNoError: "enter valid mobile number",
                           });
-                          console.log("erro");
+                        
                         }
                       }}
                       value={mobileNumber}
                     />
-                    {/* <div className=" w-100 mt-2 justify-content-around align-items-center">
-                      <div className="">Type of Income </div>
-                      <div className=" mt-1 form-group">
-                        <select
-                          className="form-select form-control pt-2 pb-2 rounded-3"
-                          aria-label="Default select example"
-                          id="account"
-                          onChange={(e) => {
-                            setuserdetails({
-                              ...userdetails,
-                              Profession: e?.target?.value,
-                            });
-                          }}
-                        >
-                          <option
-                            disabled
-                            selected={userdetails?.Profession === ""}
-                            label="Choose Profession"
-                          />
-                          <option
-                            selected={userdetails?.Profession === "BUSINESS"}
-                            value="BUSINESS"
-                          >
-                            BUSINESS
-                          </option>
-                          <option
-                            selected={userdetails?.Profession === "SALARIED"}
-                            value="SALARIED"
-                          >
-                            SALARIED
-                          </option>
-                        </select>
-                      </div>
-                    </div>
-                    {userdetails?.Profession && (
-                      <>
-                        <div>
-                          {userdetails?.Profession === "BUSINESS"
-                            ? "Describe your business"
-                            : "Employer Name"}
-                        </div>
-                        <input
-                          className="user-input rounded-2 px-2 border border-1"
-                          style={{
-                            color: "",
-                          }}
-                          type="text"
-                          placeholder=""
-                          onChange={(e) => {
-                            setuserdetails({
-                              ...userdetails,
-                              EmployerName: e.target.value,
-                            });
-                          }}
-                          value={userdetails.EmployerName}
-                        />
-                      </>
-                    )}
-                    <div>Monthly Income</div>
-                    <input
-                      className="user-input rounded-2 px-2 border border-1"
-                      style={{
-                        color: "",
-                      }}
-                      type="text"
-                      placeholder=""
-                      onChange={(e) => {
-                        setuserdetails({
-                          ...userdetails,
-                          MonthlySalary: e.target.value,
-                        });
-                      }}
-                      value={userdetails.MonthlySalary}
-                    /> */}
+                  
 
                     <button
                       disabled={
@@ -334,7 +261,7 @@ const NewCorporateAccount = () => {
 
                           customerOnboard();
                         } else {
-                          console.log("error");
+                         
                         }
                       }}
                     >

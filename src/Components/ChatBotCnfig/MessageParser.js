@@ -4,7 +4,7 @@ const MessageParser = ({ children, actions }) => {
   // const data = ['123454','234555','909090']
 
   const parse = (message) => {
-    console.log(message);
+
 
     const messages = message.toLowerCase();
     

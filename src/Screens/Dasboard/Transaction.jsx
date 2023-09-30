@@ -9,8 +9,7 @@ const FundTransaction = ({
   benifitiaryAccounts,
 }) => {
   const { account, setAccount } = useContext(AppContext);
-  const selectedAccount = [];
-  console.log(selectedAccount);
+
 
   const SelectedAccount = (data) => {
 

@@ -176,7 +176,7 @@ const Loginscreen = () => {
                   style={{
                     color: "black",
                     paddingLeft: "3px",
-                    fontFamily: "Nunito Sans",
+                  
                   }}
                 >
                   User Name{" "}
@@ -232,7 +232,7 @@ const Loginscreen = () => {
                   style={{
                     color: "black",
                     paddingLeft: "3px",
-                    fontFamily: "Nunito Sans",
+                   
                   }}
                 >
                   Password{" "}
