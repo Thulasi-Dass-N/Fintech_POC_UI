@@ -12,14 +12,14 @@ import CoBotAvatar from "./BotAvatar";
 
 import React from "react";
 
-const botName = "Bct bot";
+const botName = "JIA";
 
 const config = {
   // Defines the chatbot name
   botName: botName,
   // Defines an array of initial messages that will be displayed on first render
   initialMessages: [
-    createChatBotMessage(`Hi I'm ${botName}`),
+    createChatBotMessage(`Hi I'm ${botName} from J&K bank`),
     createChatBotMessage("Please select the below option to continue", {
       widget: "overview",
       delay: 500,

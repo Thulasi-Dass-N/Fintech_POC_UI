@@ -1,124 +1,120 @@
-// /* eslint-disable no-unused-vars */
-// import React, { useState, useContext, useEffect } from "react";
-// import Papa from "papaparse";
-// import "./HomeScreen.css";
+import React, { useEffect, useState } from "react";
 
-// import { AppContext } from "../../context/AppContext";
+import "./HomeScreen.css";
 
-// const Uploadfile = () => {
-//   const { apiUrl } = useContext(AppContext);
+const CarouselScreen = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
 
-//   const [data, setData] = useState([]);
-//   // const [transfer, setTransfer] = useState(false);
-//   // const [addTransfer, setAddTransfer] = useState(false);
-//   const [error, setError] = useState("");
+  const data = [];
 
-//   const [Transaction, setTransaction] = useState([]);
+  useEffect(() => {
+    const Interval = setTimeout(() => {
+      const banner = data?.allStrapiGallery?.edges?.length;
 
-//   const [loading, setLoading] = useState(false);
-//   const [transferDetails, setTransferDetails] = useState({
-//     ToAccountNumber: "",
-//     Amount: 0,
-//     TransactionNotes: "",
-//   });
-//   const [transferDetails1, setTransferDetails1] = useState({
-//     ToAccountNumber: "",
-//     Amount: 0,
-//     TransactionNotes: "",
-//   });
+      console.log(banner, "banner");
 
-//   useEffect(() => {
-//     var data1 = {};
-//     var tempData = [];
+      if (banner - 1 !== activeIndex) {
+        setActiveIndex(activeIndex + 1);
+      } else if (banner - 1 === activeIndex) {
+        setActiveIndex(0);
+      }
+    }, 5000);
 
-//     data?.forEach((element) => {
-//       data1 = {
-//         ToAccountNumber: element[0],
-//         Amount: Number(element[1]),
-//         TransactionNotes: element[2],
-//       };
-//       console.log(data1.ToAccountNumber, "Account");
-//       if (data1?.ToAccountNumber !== "") {
-//         tempData.push(data1);
-//       }
+    return () => {
+      clearInterval(Interval);
+    };
+  }, [activeIndex, data?.allStrapiGallery?.edges?.length]);
 
-//       setTransaction(tempData);
-//     });
-//   }, [data]);
+  const navigateToSlide = (index) => {
+    setActiveIndex(index);
+  };
 
-//   const FundTransfer = () => {
-//     console.log(Transaction, "dtaaaaaaa");
-//     setLoading(true);
-//     fetch(`http://${apiUrl.ip_port}/transferfunds`, {
-//       method: "POST",
-//       body: JSON.stringify({
-//         CustomerID: "ADMIN",
-//         AccountNumber: "ADMIN",
-//         Transactions: Transaction,
-//         // Transactions: [
-//         //   {
-//         //     ToAccountNumber: Transaction[0]?.ToAccountNumber,
-//         //     Amount: Transaction[0]?.Amount,
-//         //     TransactionNotes: Transaction[0]?.TransactionNotes,
-//         //   },
-//         // ],
-//       }),
-//       headers: {
-//         "Content-type": "application/json; charset=UTF-8",
-//         "api-key": apiUrl?.api_key,
-//         "Access-Control-Allow-Origin": "*",
-//       },
-//     })
-//       .then((response) => response.json())
-//       .then((resp) => {
-//         console.log(resp, "response");
-//         if (resp.StatusCode === "LOGIN SUCCESSFUL") {
-//           // login();
-//         }
-//         if (resp.StatusCode === "LOGIN FAILED - CUSTOMER ID DOES NOT EXIST") {
-//           setError("FAILED");
-//           setLoading(true);
-//         }
-//       })
-//       .catch((err) => {
-//         setError(err);
-//         console.error(err);
-//         setLoading(false);
-//       });
-//   };
-//   return (
-//     <div className="App">
-//       <input
-//         type="file"
-//         accept=".csv,.xlsx,.xls"
-//         onChange={(e) => {
-//           const files = e.target.files;
-//           console.log(files);
-//           if (files) {
-//             console.log(files[0]);
-//             Papa.parse(files[0], {
-//               complete: function (results) {
-//                 setData(results?.data);
-//               },
-//             });
-//           }
-//         }}
-//       />
+  console.log("data", data);
 
-//       <button
-//         type="button"
-//         onClick={() => {
-//           FundTransfer();
-//         }}
-//       >
-//         Happy
-//       </button>
+  console.log(data.allStrapiGallery.edges.length, "data");
 
-//       {data?.map((da) => (
-//         <div>{da}</div>
-//       ))}
-//     </div>
-//   );
-// };
+  // console.log(data.allStrapiGallery.edges[0].node.carouselBanner[0].url);
 
-// export default Uploadfile;
+  return (
+    <div>
+      <div className="custom-carousel" style={{ position: "relative" }}>
+        {data.allStrapiGallery.edges.map((service, index) => (
+          <div
+            className="carousel-item"
+            key={service.node.id}
+            style={{
+              display: activeIndex === index ? "flex" : "none",
+            }}
+          >
+            <div className="left-content">
+              <img src={service.node.image[0].url} alt={service.node.alt} />
+            </div>
+
+            <div className="right-content">
+              <p>{service.node.subtitle}</p>
+
+              <h2>{service.node.title}</h2>
+
+              <p>{service.node.description.data.description}</p>
+
+              <a href={service.node.link}>
+                <button> know more</button>
+              </a>
+
+              {/* <p>{service.node.order}</p> */}
+            </div>
+          </div>
+        ))}
+
+        <div
+          className=""
+          style={{ position: "absolute", display: "flex", width: "80%" }}
+        >
+          {data.allStrapiGallery.edges.map((service, index) => (
+            <>
+              {activeIndex === index ? (
+                <div
+                  className="pro-title"
+                  style={{
+                    textAlign: "center",
+                  }}
+                >
+                  {service.node.name}
+
+                  <div
+                    key={service.node.id}
+                    className="progress2 progress-moved"
+                  >
+                    <div className="progress-bar2"></div>
+                  </div>
+                </div>
+              ) : (
+                <div
+                  role="presentation"
+                  onClick={() => navigateToSlide(index)}
+                  style={{
+                    textAlign: "center",
+                  }}
+                >
+                  {service.node.name}
+
+                  <div
+                    key={service.node.id}
+                    className="progress2 progress-moved"
+                    style={{
+                      height: "3px",
+                    }}
+                  >
+                    {/* <div className="progress-bar2"></div> */}
+                  </div>
+                </div>
+              )}
+            </>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default CarouselScreen;
