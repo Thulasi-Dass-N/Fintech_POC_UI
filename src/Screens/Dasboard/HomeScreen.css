@@ -126,3 +126,59 @@ input[type="file"]::file-selector-button {
   background-color: #81ecec;
   border: 2px solid #00cec9;
 } */
+
+/* carousel progress bar */
+
+@keyframes progressAnimationStrike {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+.progress2 {
+  /* padding: 2px; */
+
+  width: 100px;
+
+  border-radius: 30px;
+
+  margin-left: 10px;
+
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.progress-bar2 {
+  height: 3px;
+
+  border-radius: 30px;
+
+  background-color: #fff;
+
+  transition: 0.4s linear;
+
+  transition-property: width, background-color;
+}
+
+.progress-moved .progress-bar2 {
+  width: 100%;
+
+  background-color: #1566e0;
+
+  animation: progressAnimation 6s;
+}
+
+@keyframes progressAnimation {
+  0% {
+    width: 5%;
+    background-color: #1566e0;
+  }
+
+  100% {
+    width: 100%;
+    background-color: #1566e0;
+  }
+}
