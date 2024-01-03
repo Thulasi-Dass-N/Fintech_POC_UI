@@ -19,7 +19,7 @@ const config = {
   botName: botName,
   // Defines an array of initial messages that will be displayed on first render
   initialMessages: [
-    createChatBotMessage(`Hi I'm ${botName} from J&K bank`),
+    createChatBotMessage(`Hi I'm ${botName} from ABC bank`),
     createChatBotMessage("Please select the below option to continue", {
       widget: "overview",
       delay: 500,

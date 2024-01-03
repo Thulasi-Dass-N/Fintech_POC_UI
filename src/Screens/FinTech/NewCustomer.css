@@ -1,6 +1,6 @@
 .main_div {
   background-color: #3a3a3a;
-  height: 100vh;
+  min-height: 100vh;
   overflow: hidden;
 }
 .text-color {
@@ -9,11 +9,11 @@
 }
 
 .left-pad {
-  padding-left: 80px;
+  padding-left: 50px;
 }
 
 .right-pad {
-  padding-right: 50px;
+  padding-right: 0px;
 }
 .left-font-h1 {
   font-size: 60px;
@@ -54,10 +54,10 @@ video {
 }
 
 .nav-link:hover {
-  color: #00B899 !important;
+  color: #00b899 !important;
 }
 .nav-link:active {
-  color: #00B899 !important;
+  color: #00b899 !important;
 }
 
 .user-input:focus {
@@ -69,54 +69,52 @@ video {
   box-shadow: none;
 }
 
-
-
 @-webkit-keyframes fadeInDown {
   from {
-      opacity:0;
-      -webkit-transform: translatey(-10px);
-      -moz-transform: translatey(-10px);
-      -o-transform: translatey(-10px);
-      transform: translatey(-10px);
+    opacity: 0;
+    -webkit-transform: translatey(-10px);
+    -moz-transform: translatey(-10px);
+    -o-transform: translatey(-10px);
+    transform: translatey(-10px);
   }
   to {
-      opacity:1;
-      -webkit-transform: translatey(0);
-      -moz-transform: translatey(0);
-      -o-transform: translatey(0);
-      transform: translatey(0);
+    opacity: 1;
+    -webkit-transform: translatey(0);
+    -moz-transform: translatey(0);
+    -o-transform: translatey(0);
+    transform: translatey(0);
   }
 }
 @-moz-keyframes fadeInDown {
   from {
-      opacity:0;
-      -webkit-transform: translatey(-10px);
-      -moz-transform: translatey(-10px);
-      -o-transform: translatey(-10px);
-      transform: translatey(-10px);
+    opacity: 0;
+    -webkit-transform: translatey(-10px);
+    -moz-transform: translatey(-10px);
+    -o-transform: translatey(-10px);
+    transform: translatey(-10px);
   }
   to {
-      opacity:1;
-      -webkit-transform: translatey(0);
-      -moz-transform: translatey(0);
-      -o-transform: translatey(0);
-      transform: translatey(0);
+    opacity: 1;
+    -webkit-transform: translatey(0);
+    -moz-transform: translatey(0);
+    -o-transform: translatey(0);
+    transform: translatey(0);
   }
 }
 @keyframes fadeInDown {
   from {
-      opacity:0;
-      -webkit-transform: translatey(-10px);
-      -moz-transform: translatey(-10px);
-      -o-transform: translatey(-10px);
-      transform: translatey(-10px);
+    opacity: 0;
+    -webkit-transform: translatey(-10px);
+    -moz-transform: translatey(-10px);
+    -o-transform: translatey(-10px);
+    transform: translatey(-10px);
   }
   to {
-      opacity:1;
-      -webkit-transform: translatey(0);
-      -moz-transform: translatey(0);
-      -o-transform: translatey(0);
-      transform: translatey(0);
+    opacity: 1;
+    -webkit-transform: translatey(0);
+    -moz-transform: translatey(0);
+    -o-transform: translatey(0);
+    transform: translatey(0);
   }
 }
 .in-down {
@@ -134,55 +132,54 @@ video {
   animation-duration: 1s;
 }
 
-
 /** fadeInLeft **/
 
 @-webkit-keyframes fadeInLeft {
   from {
-      opacity:0;
-      -webkit-transform: translatex(-10px);
-      -moz-transform: translatex(-10px);
-      -o-transform: translatex(-10px);
-      transform: translatex(-10px);
+    opacity: 0;
+    -webkit-transform: translatex(-10px);
+    -moz-transform: translatex(-10px);
+    -o-transform: translatex(-10px);
+    transform: translatex(-10px);
   }
   to {
-      opacity:1;
-      -webkit-transform: translatex(0);
-      -moz-transform: translatex(0);
-      -o-transform: translatex(0);
-      transform: translatex(0);
+    opacity: 1;
+    -webkit-transform: translatex(0);
+    -moz-transform: translatex(0);
+    -o-transform: translatex(0);
+    transform: translatex(0);
   }
 }
 @-moz-keyframes fadeInLeft {
   from {
-      opacity:0;
-      -webkit-transform: translatex(-10px);
-      -moz-transform: translatex(-10px);
-      -o-transform: translatex(-10px);
-      transform: translatex(-10px);
+    opacity: 0;
+    -webkit-transform: translatex(-10px);
+    -moz-transform: translatex(-10px);
+    -o-transform: translatex(-10px);
+    transform: translatex(-10px);
   }
   to {
-      opacity:1;
-      -webkit-transform: translatex(0);
-      -moz-transform: translatex(0);
-      -o-transform: translatex(0);
-      transform: translatex(0);
+    opacity: 1;
+    -webkit-transform: translatex(0);
+    -moz-transform: translatex(0);
+    -o-transform: translatex(0);
+    transform: translatex(0);
   }
 }
 @keyframes fadeInLeft {
   from {
-      opacity:0;
-      -webkit-transform: translatex(-100px);
-      -moz-transform: translatex(-100px);
-      -o-transform: translatex(-100px);
-      transform: translatex(-100px);
+    opacity: 0;
+    -webkit-transform: translatex(-100px);
+    -moz-transform: translatex(-100px);
+    -o-transform: translatex(-100px);
+    transform: translatex(-100px);
   }
   to {
-      opacity:1;
-      -webkit-transform: translatex(0);
-      -moz-transform: translatex(0);
-      -o-transform: translatex(0);
-      transform: translatex(0);
+    opacity: 1;
+    -webkit-transform: translatex(0);
+    -moz-transform: translatex(0);
+    -o-transform: translatex(0);
+    transform: translatex(0);
   }
 }
 .in-left {
@@ -202,4 +199,42 @@ video {
   -moz-animation-delay: 0.3s;
   -o-animation-duration: 0.3s;
   animation-delay: 0.3s;
+}
+
+.offerCard {
+  width: 100%;
+  min-height: 400px;
+}
+
+.card-bg {
+  background-image: linear-gradient(
+    298deg,
+    #1d2a6c -11.57%,
+    #3d53c7 26.91%,
+    #0379b7 68.24%,
+    #b2dcf2 110.22%
+  );
+}
+
+.cardtext {
+  background-image: linear-gradient(
+    298deg,
+    #1d2a6c -11.57%,
+    #3d53c7 26.91%,
+    #0379b7 68.24%,
+    #b2dcf2 110.22%
+  );
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  font-size: 32px;
+}
+.terms-height {
+  height: 300px;
+  overflow: auto;
+  padding: 10px;
+}
+
+.loan-select {
+  transform: scale(1.1);
 }
