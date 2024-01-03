@@ -1,14 +1,14 @@
-import React, { useState, useContext } from "react";
-import { AppContext } from "../../context/AppContext";
-import Modal from "../../Components/Modal";
-import "./loginscreen.css";
-import Chatbot from "../Chat/ChatBot";
-import chatimage from "../../assets/message.gif";
-import Jkbank from "../../assets/jklogo.png";
+import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Modal from "../../Components/Modal";
+import Jkbank from "../../assets/banklogo.png";
+import loginSuccess from "../../assets/loginSuccess.gif";
+import chatimage from "../../assets/message.gif";
 import Password from "../../assets/password.png";
 import personimg from "../../assets/person.png";
-import loginSuccess from "../../assets/loginSuccess.gif";
+import { AppContext } from "../../context/AppContext";
+import Chatbot from "../Chat/ChatBot";
+import "./loginscreen.css";
 
 const Loginscreen = () => {
   const navigate = useNavigate();
@@ -27,7 +27,13 @@ const Loginscreen = () => {
     UserID: "",
     Password: "",
   });
+  console.log(apiUrl);
+  // const fetch = require("node-fetch");
+  // const https = require("https");
 
+  // const httpsAgent = new https.Agent({
+  //   rejectUnauthorized: false,
+  // });
   const login = async (userDetails) => {
     fetch(`http://${apiUrl.ip_port}/login`, {
       method: "POST",
@@ -37,7 +43,7 @@ const Loginscreen = () => {
       }),
       headers: {
         "Content-type": "application/json; charset=UTF-8",
-        "api-key" : apiUrl?.api_key,
+        "api-key": apiUrl?.api_key,
         "Access-Control-Allow-Origin": "*",
       },
     })
@@ -67,6 +73,9 @@ const Loginscreen = () => {
             Password: "",
           });
         }
+      })
+      .catch((e) => {
+        console.log(e, "logerrr");
       });
   };
 
@@ -137,8 +146,8 @@ const Loginscreen = () => {
             <img
               style={{
                 display: "flex",
-                width: "100px",
-                height: "30px",
+                width: "200px",
+                height: "90px",
                 justifyContent: "flex-start",
                 alignItems: "flex-start",
               }}
@@ -147,7 +156,7 @@ const Loginscreen = () => {
             />
           </div>
           <h3 className="welcome">Welcome to</h3>
-          <h1>J&K Bank</h1>
+          <h1>ABC Bank</h1>
           <div>
             <div
               className="buttons"
@@ -176,7 +185,6 @@ const Loginscreen = () => {
                   style={{
                     color: "black",
                     paddingLeft: "3px",
-                  
                   }}
                 >
                   User Name{" "}
@@ -232,7 +240,6 @@ const Loginscreen = () => {
                   style={{
                     color: "black",
                     paddingLeft: "3px",
-                   
                   }}
                 >
                   Password{" "}

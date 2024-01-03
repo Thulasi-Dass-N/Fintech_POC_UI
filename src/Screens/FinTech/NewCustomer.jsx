@@ -1,15 +1,16 @@
-import React, { useState, useContext } from "react";
-import "./NewCustomer.css";
-import logo from "../../assets/finteck.png";
-import { useSearchParams } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import Modal from "../../Components/Modal";
+import logo from "../../assets/finteck.png";
 import { AppContext } from "../../context/AppContext";
 import LoadingSpinner from "../Spinner/spinner";
+import "./NewCustomer.css";
 // import { getComponents } from "../Common/common";
 
 import { nameValid, validateMob, validatePan } from "../../Utils/Validation";
 
 const NewCustomer = () => {
+  const navigate = useNavigate();
   const [applyNow, setApplyNow] = useState(false);
   const { finApiUrl, setFinApiUrl } = useContext(AppContext);
   const [loading, setLoading] = useState(false);
@@ -954,7 +955,6 @@ const NewCustomer = () => {
                           ...customerDetails,
                           MobileNo: "",
                         });
-                       
                       }
                     }}
                   />
@@ -1003,7 +1003,6 @@ const NewCustomer = () => {
                       setLoading(true);
                       customerOnboard();
                     } else {
-                     
                     }
                   } else if (
                     customerDetails?.AccountsType !== "" &&
@@ -1018,7 +1017,6 @@ const NewCustomer = () => {
                       return prev;
                     });
                   } else {
-                   
                   }
                 }}
               >
@@ -1189,7 +1187,6 @@ const NewCustomer = () => {
                           ...customerDetails,
                           MobileNo: "",
                         });
-                       
                       }
                     }}
                   />
@@ -1447,7 +1444,6 @@ const NewCustomer = () => {
                           ...customerDetails,
                           MobileNo: "",
                         });
-                       
                       }
                     }}
                   />
@@ -1728,7 +1724,6 @@ const NewCustomer = () => {
                           ...customerDetails,
                           MobileNo: "",
                         });
-                       
                       }
                     }}
                   />
@@ -1861,7 +1856,6 @@ const NewCustomer = () => {
 
                     customerOnboard();
                   } else {
-                   
                   }
                 }}
               >
@@ -1963,7 +1957,7 @@ const NewCustomer = () => {
           </div>
         </div>
       </Modal>
-      <div className=" d-flex justify-content-around px-5">
+      <div className=" d-flex justify-content-around px-1">
         <div className="mt-4 left-pad">
           <img
             className="img-logo"
@@ -2046,7 +2040,16 @@ const NewCustomer = () => {
                   });
                 }}
               >
-                {applyNow ? "Cancel" : "APPLY NOW"}
+                {applyNow ? "Cancel" : "Apply now"}
+              </button>
+              <button
+                type="button"
+                className="btn btn-success ms-2"
+                onClick={() => {
+                  navigate("/loan");
+                }}
+              >
+                Apply For Loan
               </button>
             </div>
           </div>

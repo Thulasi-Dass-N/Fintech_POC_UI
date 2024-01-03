@@ -27,7 +27,7 @@
 .logoimg {
   width: 100px;
   height: 70px;
-  object-fit: contain;
+  /* object-fit: contain; */
 }
 
 .search-input:focus {

@@ -1,36 +1,32 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect, useState } from "react";
+import React from "react";
+import "../../App.css";
 import "./chatbot.css";
-import "../../App.css"
 // import help from "../../assets/help.png"
 import Chatbot from "react-chatbot-kit";
 import ActionProvider from "../../Components/ChatBotCnfig/ActionProvider";
-import config from "../../Components/ChatBotCnfig/config";
 import MessageParser from "../../Components/ChatBotCnfig/MessageParser";
+import config from "../../Components/ChatBotCnfig/config";
 // import { category } from "./category";
 
 const Chatbox = ({ handleClose }) => {
-  
-  
-
   const saveMessages = (messages, HTMLString) => {
-    localStorage.setItem('chat_messages', JSON.stringify(messages));
+    localStorage.setItem("chat_messages", JSON.stringify(messages));
   };
 
   const loadMessages = () => {
-    const messages = JSON.parse(localStorage.getItem('chat_messages'));
+    const messages = JSON.parse(localStorage.getItem("chat_messages"));
     return messages;
   };
 
   return (
-     
     <div id="chatbox">
       <div className="chatbox-wrapper">
         <div className="chatbox-top">
           <div>Ask JIA</div>
 
           <div className="chatbox-intro">
-            I am JIA your personal banking assistant to help you with J&K Bank
+            I am JIA your personal banking assistant to help you with ABC Bank
             related queries. Please use the quick links below or type your own
             query 💬
           </div>
@@ -41,13 +37,13 @@ const Chatbox = ({ handleClose }) => {
             config={config}
             actionProvider={ActionProvider}
             messageParser={MessageParser}
-            headerText='Chatbot'
-            placeholderText='Input placeholder'
+            headerText="Chatbot"
+            placeholderText="Input placeholder"
             messageHistory={loadMessages()}
             saveMessages={saveMessages}
             // validator={validateInput}
             runInitialMessagesWithHistory
-            disableScrollToBottom = {false}
+            disableScrollToBottom={false}
           />
           {/* {!chat ? (  <>
                     <div className="bot-img">
